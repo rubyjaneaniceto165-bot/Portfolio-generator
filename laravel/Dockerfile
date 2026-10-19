@@ -10,8 +10,8 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
 
-COPY . .
+COPY laravel/ .
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-CMD php artisan serve --host=0.0.0.0 --port=${PORT:-8080} --no-reload
+CMD php artisan serve --host=0.0.0.0 --port=${PORT:-8080}
