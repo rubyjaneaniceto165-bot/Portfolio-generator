@@ -1,0 +1,231 @@
+
+.profile-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 32px auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+.profile-heading {
+    margin-bottom: 28px;
+}
+
+.profile-label {
+    color: #496a54;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.profile-heading h1 {
+    color: #183f2d;
+    font-size: 32px;
+    margin: 0 0 10px;
+}
+
+.profile-heading > p:last-child {
+    color: #6b756d;
+    line-height: 1.6;
+}
+
+.profile-card {
+    background: #ffffff;
+    border: 1px solid #e4e8dd;
+    border-radius: 18px;
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 20px rgba(24, 63, 45, 0.04);
+}
+
+.profile-card h2 {
+    color: #183f2d;
+    font-size: 21px;
+    margin: 0 0 10px;
+}
+
+.profile-description {
+    color: #6b756d;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 22px;
+}
+
+.profile-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e6eddf;
+    color: #183f2d;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.profile-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-card label {
+    color: #294936;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 15px 0 8px;
+}
+
+.profile-card input:not([type="checkbox"]),
+.profile-card textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 14px;
+    border: 1px solid #dce3d8;
+    border-radius: 9px;
+    background: #fcfcf7;
+    color: #24372b;
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.profile-card input:focus,
+.profile-card textarea:focus {
+    border-color: #50775a;
+    box-shadow: 0 0 0 3px rgba(80, 119, 90, 0.12);
+}
+
+.profile-card input:disabled,
+.profile-card input:read-only {
+    background: #f0f1e9;
+    color: #72796f;
+    cursor: not-allowed;
+}
+
+.profile-card textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.save-profile-btn {
+    align-self: flex-start;
+    margin-top: 18px;
+    padding: 12px 22px;
+    background: #183f2d;
+    border: none;
+    border-radius: 9px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.save-profile-btn:hover {
+    background: #28583e;
+}
+
+.save-profile-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.show-password-option {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 18px !important;
+    cursor: pointer;
+}
+
+.show-password-option input {
+    accent-color: #183f2d;
+}
+
+#profileMessage,
+#passwordMessage,
+#emailMessage {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 12px 0 0;
+}
+
+.logout-section {
+    border-color: #eedbd5;
+    background: #fffdfb;
+}
+
+.logout-btn {
+    padding: 11px 20px;
+    border: 1px solid #c64b40;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #b42318;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #fff0ed;
+}
+
+@media (max-width: 700px) {
+    .profile-container {
+        padding: 0 16px;
+        margin-top: 22px;
+    }
+
+    .profile-heading h1 {
+        font-size: 27px;
+    }
+
+    .profile-card {
+        padding: 21px;
+        border-radius: 14px;
+    }
+
+    .save-profile-btn {
+        width: 100%;
+    }
+}
+
+
+
+/* DELETE ACCOUNT */
+.delete-account-section {
+    border: 1px solid #f0c7c3;
+}
+
+.delete-account-section h2 {
+    color: #b42318;
+}
+
+.delete-account-btn {
+    background: #b42318;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.delete-account-btn:hover {
+    background: #8f1d14;
+}
+
+.delete-account-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#deleteAccountMessage {
+    margin-top: 12px;
+    font-size: 14px;
+}
