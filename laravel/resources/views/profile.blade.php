@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portech - Profile Settings</title>
 
+    <link rel="stylesheet" href="/css/dark-mode.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="stylesheet" href="/css/profile.css">
@@ -63,9 +64,20 @@
                 <p class="topbar-subtitle">Your personal information</p>
             </div>
 
-            <a href="/account-settings" class="secondary-button">
-                Account Settings →
-            </a>
+            <div class="topbar-actions">
+                <button
+                    type="button"
+                    class="theme-toggle"
+                    data-theme-toggle
+                    aria-label="Switch to dark mode"
+                    title="Dark mode">
+                    🌙
+                </button>
+
+                <a href="/account-settings" class="secondary-button">
+                    Account Settings →
+                </a>
+            </div>
         </header>
 
         <div class="profile-container">
@@ -133,14 +145,15 @@
     </main>
 </div>
 
-<!-- Load Supabase first -->
+<!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<!-- Create the shared Supabase client -->
 <script src="/js/supabase-config.js"></script>
 
-<!-- Profile loading, saving, and logout -->
+<!-- Profile functionality -->
 <script src="/js/profile.js?v=2"></script>
+
+<!-- Theme toggle -->
+<script src="/js/theme.js" defer></script>
 
 </body>
 </html>

@@ -1675,3 +1675,139 @@ select:focus {
     border-color: #851919 !important;
     color: #ffffff !important;
 }
+
+
+.editor-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.editor-header .theme-toggle {
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+
+
+/* FIX FADED MODERN EDITOR TEXT */
+
+/* Header */
+.editor-header .brand span,
+.editor-header .editor-label,
+.editor-header .back-link {
+    color: #dce8df !important;
+    opacity: 1 !important;
+}
+
+/* Form and preview headings */
+.panel-heading h1,
+.panel-heading p,
+.preview-heading h2 {
+    color: #263b2e !important;
+    opacity: 1 !important;
+}
+
+/* Small labels */
+.eyebrow {
+    color: #526b58 !important;
+    opacity: 1 !important;
+}
+
+/* Form hints and helper text */
+.field-hint {
+    color: #66796b !important;
+    opacity: 1 !important;
+}
+
+/* Portfolio preview text */
+.portfolio-page .hero-copy > p:not(.mini-label),
+.portfolio-page .about-section p,
+.portfolio-page .skills-section p,
+.portfolio-page .project-copy p,
+.portfolio-page .contact-section p {
+    opacity: 1 !important;
+}
+
+/* Keep the live preview readable */
+.portfolio-page .tiny-note {
+    opacity: 1 !important;
+}
+
+/* Dark mode toggle */
+.editor-header .theme-toggle {
+    opacity: 1 !important;
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   MODERN EDITOR - CLEAR LIGHT MODE TEXT
+========================================== */
+
+html:not([data-theme="dark"]) body {
+    background: #f1f1e9 !important;
+    color: #24352b !important;
+}
+
+html:not([data-theme="dark"]) .editor-header {
+    background: #ffffff !important;
+    border-bottom: 1px solid #dce3da !important;
+}
+
+html:not([data-theme="dark"]) .editor-header .brand,
+html:not([data-theme="dark"]) .editor-header .brand span,
+html:not([data-theme="dark"]) .editor-header .editor-label,
+html:not([data-theme="dark"]) .editor-header .back-link {
+    color: #294333 !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #294333 !important;
+}
+
+html:not([data-theme="dark"]) .editor-layout {
+    background: #f1f1e9 !important;
+}
+
+html:not([data-theme="dark"]) .form-panel {
+    background: #ffffff !important;
+    color: #24352b !important;
+    border: 1px solid #e0e5dc !important;
+    opacity: 1 !important;
+}
+
+html:not([data-theme="dark"]) .form-panel h1,
+html:not([data-theme="dark"]) .form-panel p,
+html:not([data-theme="dark"]) .form-panel label,
+html:not([data-theme="dark"]) .form-panel .eyebrow,
+html:not([data-theme="dark"]) .preview-heading h2,
+html:not([data-theme="dark"]) .preview-heading .eyebrow {
+    color: #294333 !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #294333 !important;
+}
+
+html:not([data-theme="dark"]) .form-panel input:not([type="file"]),
+html:not([data-theme="dark"]) .form-panel textarea {
+    background: #ffffff !important;
+    color: #24352b !important;
+    border: 1px solid #dce3da !important;
+    opacity: 1 !important;
+}
+
+html:not([data-theme="dark"]) .form-panel input::placeholder,
+html:not([data-theme="dark"]) .form-panel textarea::placeholder {
+    color: #788579 !important;
+    opacity: 1 !important;
+}
+
+html:not([data-theme="dark"]) .theme-toggle {
+    opacity: 1 !important;
+    background: #ffffff !important;
+    border: 1px solid #dce3da !important;
+}
+
+/* Keep the portfolio preview's original design intact */
+html:not([data-theme="dark"]) #modernPortfolioPage {
+    opacity: 1 !important;
+    filter: none !important;
+}

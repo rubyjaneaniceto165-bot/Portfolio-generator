@@ -6,6 +6,7 @@
 
     <title>Portech - Dashboard</title>
 
+    <link rel="stylesheet" href="/css/dark-mode.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/dashboard.css">
 </head>
@@ -65,25 +66,47 @@
 
             <!-- TOP BAR -->
             <header class="dashboard-topbar">
+
                 <div>
                     <p class="topbar-label">PORTECH WORKSPACE</p>
                     <p class="topbar-subtitle">Your creative space</p>
                 </div>
 
-                <a href="/profile" class="user-profile" title="Profile Settings">
-                    <div class="user-avatar" id="userAvatar">U</div>
+                <!-- THEME BUTTON AND PROFILE -->
+                <div class="topbar-actions">
 
-                    <div class="user-info">
-                        <strong id="topbarName">Loading...</strong>
-                        <span>My Account</span>
-                    </div>
-                </a>
+                    <button
+                        type="button"
+                        class="theme-toggle"
+                        data-theme-toggle
+                        aria-label="Switch to dark mode"
+                        title="Dark mode">
+                        🌙
+                    </button>
+
+                    <a
+                        href="/profile"
+                        class="user-profile"
+                        title="Profile Settings">
+
+                        <div class="user-avatar" id="userAvatar">U</div>
+
+                        <div class="user-info">
+                            <strong id="topbarName">Loading...</strong>
+                            <span>My Account</span>
+                        </div>
+                    </a>
+
+                </div>
             </header>
 
             <!-- WELCOME SECTION -->
             <section class="welcome-section">
+
                 <div class="welcome-content">
-                    <span class="welcome-badge">✦ YOUR PORTFOLIO JOURNEY</span>
+                    <span class="welcome-badge">
+                        ✦ YOUR PORTFOLIO JOURNEY
+                    </span>
 
                     <h1>
                         Welcome back,
@@ -106,7 +129,9 @@
 
                     <div class="art-paper">
                         <div class="paper-top">
-                            <span></span><span></span><span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </div>
 
                         <div class="paper-avatar">P</div>
@@ -114,7 +139,8 @@
                         <div class="paper-line line-medium"></div>
 
                         <div class="paper-blocks">
-                            <span></span><span></span>
+                            <span></span>
+                            <span></span>
                         </div>
 
                         <div class="paper-line line-small"></div>
@@ -123,6 +149,7 @@
                     <div class="art-star star-one">✦</div>
                     <div class="art-star star-two">✧</div>
                 </div>
+
             </section>
 
             <!-- SUMMARY CARDS -->
@@ -150,7 +177,7 @@
 
             </section>
 
-            <!-- PORTFOLIO SECTION -->
+            <!-- MY PORTFOLIOS -->
             <section class="portfolio-section" id="my-portfolios">
 
                 <div class="section-heading">
@@ -170,6 +197,7 @@
 
                 <!-- EMPTY STATE -->
                 <div class="empty-state" id="emptyState">
+
                     <div class="empty-illustration">
                         <span>▤</span>
                         <span class="empty-sparkle">✦</span>
@@ -185,6 +213,7 @@
                     <a href="/templates" class="primary-button">
                         Create Your First Portfolio
                     </a>
+
                 </div>
 
                 <!-- SAVED PORTFOLIOS -->
@@ -219,6 +248,9 @@
 
     <!-- DASHBOARD FUNCTIONALITY -->
     <script src="/js/dashboard.js?v=4"></script>
+
+    <!-- DARK MODE FUNCTIONALITY -->
+    <script src="/js/theme.js"></script>
 
 </body>
 </html>

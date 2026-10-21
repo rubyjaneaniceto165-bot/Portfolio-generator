@@ -1129,3 +1129,160 @@ header nav a:hover::after,
 header nav a.active::after {
     transform: scaleX(1);
 }
+
+
+/* =========================================
+   PORTECH HOMEPAGE - DARK MODE BUTTON
+========================================= */
+
+header .buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+header .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid #d1d8d1;
+    border-radius: 10px;
+    background: #eef2ed;
+    color: #25372b;
+    font-size: 20px;
+    cursor: pointer;
+    flex-shrink: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+header .theme-toggle:hover {
+    background: #dfe8df;
+}
+
+/* =========================================
+   HOMEPAGE DARK MODE
+========================================= */
+
+html[data-theme="dark"] body {
+    background: #151b18 !important;
+    color: #e4ebe5 !important;
+}
+
+html[data-theme="dark"] header {
+    background: #1c2620 !important;
+    color: #e4ebe5 !important;
+    border-color: #344238 !important;
+}
+
+html[data-theme="dark"] header .logo,
+html[data-theme="dark"] header nav a {
+    color: #e4ebe5 !important;
+}
+
+html[data-theme="dark"] .home,
+html[data-theme="dark"] .guide-section,
+html[data-theme="dark"] .about-section {
+    background: #151b18 !important;
+    color: #e4ebe5 !important;
+}
+
+html[data-theme="dark"] .home h1,
+html[data-theme="dark"] .home p,
+html[data-theme="dark"] .section-title h2,
+html[data-theme="dark"] .section-title p,
+html[data-theme="dark"] .template-title h2,
+html[data-theme="dark"] .template-title p,
+html[data-theme="dark"] .about-text h2,
+html[data-theme="dark"] .about-text p,
+html[data-theme="dark"] .contact-box h3,
+html[data-theme="dark"] .contact-box p {
+    color: #e4ebe5 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .home h1 span {
+    color: #a9d6b2 !important;
+}
+
+html[data-theme="dark"] .step-card,
+html[data-theme="dark"] .template-card,
+html[data-theme="dark"] .contact-box {
+    background: #202a23 !important;
+    color: #e4ebe5 !important;
+    border-color: #344238 !important;
+    box-shadow: none;
+}
+
+html[data-theme="dark"] .step-card h3,
+html[data-theme="dark"] .step-card p,
+html[data-theme="dark"] .template-info h3,
+html[data-theme="dark"] .template-info p {
+    color: #e4ebe5 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .step-number {
+    color: #a9d6b2 !important;
+}
+
+html[data-theme="dark"] .location,
+html[data-theme="dark"] .location p,
+html[data-theme="dark"] .location strong {
+    color: #e4ebe5 !important;
+}
+
+html[data-theme="dark"] footer {
+    background: #101612 !important;
+    color: #e4ebe5 !important;
+}
+
+html[data-theme="dark"] footer p,
+html[data-theme="dark"] .footer-logo {
+    color: #e4ebe5 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .social-link {
+    color: #b8d4be !important;
+}
+
+/* Dark mode toggle appearance */
+html[data-theme="dark"] header .theme-toggle {
+    background: #303c33 !important;
+    color: #ffffff !important;
+    border-color: #46564a !important;
+}
+
+/* Login and signup popups */
+html[data-theme="dark"] .popup .form-box {
+    background: #202a23 !important;
+    color: #e4ebe5 !important;
+    border-color: #344238 !important;
+}
+
+html[data-theme="dark"] .popup .form-box h2,
+html[data-theme="dark"] .popup .form-box label,
+html[data-theme="dark"] .popup .form-box p {
+    color: #e4ebe5 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .popup .form-box input {
+    background: #151b18 !important;
+    color: #f0f5f1 !important;
+    border-color: #435448 !important;
+}
+
+html[data-theme="dark"] .popup .form-box input::placeholder {
+    color: #a2b0a5 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .popup .close,
+html[data-theme="dark"] .popup .switch-text span {
+    color: #a9d6b2 !important;
+}

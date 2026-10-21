@@ -1053,3 +1053,280 @@ a {
     border-color: #851919 !important;
     color: #ffffff !important;
 }
+
+
+/* =========================================
+   PORTECH CREATIVE EDITOR - DARK MODE
+========================================= */
+
+/* Header actions */
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid #d1d8d1;
+    border-radius: 10px;
+    background: #eef2ed;
+    color: #25372b;
+    font-size: 19px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    background: #e1e9e1;
+}
+
+/* Page background */
+html[data-theme="dark"] body {
+    background: #151b18 !important;
+    color: #e4ebe5 !important;
+}
+
+/* Header and editor panels */
+html[data-theme="dark"] .topbar,
+html[data-theme="dark"] .editor-panel,
+html[data-theme="dark"] .preview-panel {
+    background: #1c2620 !important;
+    color: #e4ebe5 !important;
+    border-color: #344238 !important;
+}
+
+/* Header text */
+html[data-theme="dark"] .brand,
+html[data-theme="dark"] .back-link {
+    color: #e4ebe5 !important;
+    opacity: 1 !important;
+}
+
+/* Editor headings and labels */
+html[data-theme="dark"] .editor-panel h1,
+html[data-theme="dark"] .editor-panel label,
+html[data-theme="dark"] .preview-heading h2,
+html[data-theme="dark"] .subheading {
+    color: #e4ebe5 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .eyebrow,
+html[data-theme="dark"] .hint,
+html[data-theme="dark"] .counter {
+    color: #a9c3ae !important;
+    opacity: 1 !important;
+}
+
+/* Form fields */
+html[data-theme="dark"] .editor-panel input,
+html[data-theme="dark"] .editor-panel textarea {
+    background: #222e26 !important;
+    color: #f0f5f1 !important;
+    border-color: #435448 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .editor-panel input::placeholder,
+html[data-theme="dark"] .editor-panel textarea::placeholder {
+    color: #a2b0a5 !important;
+    opacity: 1 !important;
+}
+
+/* Theme toggle */
+html[data-theme="dark"] .theme-toggle {
+    background: #303c33 !important;
+    color: #ffffff !important;
+    border-color: #46564a !important;
+    opacity: 1 !important;
+}
+
+/* Creative portfolio preview */
+html[data-theme="dark"] .portfolio-page {
+    background: #171e19 !important;
+    color: #e4ebe5 !important;
+    border-color: #344238 !important;
+}
+
+/* Portfolio sidebar */
+html[data-theme="dark"] .profile-sidebar {
+    background: #202a23 !important;
+    color: #e4ebe5 !important;
+    border-color: #344238 !important;
+}
+
+html[data-theme="dark"] .profile-sidebar h1,
+html[data-theme="dark"] .profile-sidebar p,
+html[data-theme="dark"] .profile-sidebar span,
+html[data-theme="dark"] .profile-sidebar .sidebar-logo {
+    color: #e4ebe5;
+    opacity: 1;
+}
+
+html[data-theme="dark"] .profile-sidebar .sidebar-caption,
+html[data-theme="dark"] .profile-sidebar .sidebar-label {
+    color: #a9c3ae !important;
+}
+
+/* Main portfolio content */
+html[data-theme="dark"] .portfolio-main {
+    background: #171e19 !important;
+    color: #e4ebe5 !important;
+}
+
+html[data-theme="dark"] .portfolio-nav {
+    background: #171e19 !important;
+    border-color: #344238 !important;
+}
+
+html[data-theme="dark"] .portfolio-brand,
+html[data-theme="dark"] .portfolio-links a {
+    color: #e4ebe5 !important;
+}
+
+html[data-theme="dark"] .modern-hero h2,
+html[data-theme="dark"] .modern-hero h3,
+html[data-theme="dark"] .modern-hero p,
+html[data-theme="dark"] .content-section h2,
+html[data-theme="dark"] .content-section h3,
+html[data-theme="dark"] .content-section p {
+    color: #e4ebe5 !important;
+    opacity: 1 !important;
+}
+
+/* Section labels */
+html[data-theme="dark"] .section-label,
+html[data-theme="dark"] .hero-label {
+    color: #a9c3ae !important;
+}
+
+/* Cards and project section */
+html[data-theme="dark"] .project-card,
+html[data-theme="dark"] .skill-list > *,
+html[data-theme="dark"] .contact-section {
+    background: #202a23 !important;
+    color: #e4ebe5 !important;
+    border-color: #344238 !important;
+}
+
+html[data-theme="dark"] .project-card h3,
+html[data-theme="dark"] .project-card p {
+    color: #e4ebe5 !important;
+}
+
+/* Links and buttons */
+html[data-theme="dark"] .portfolio-page a:not(.preview-cta):not(.sidebar-button) {
+    color: #b8d4be;
+}
+
+html[data-theme="dark"] .sidebar-button,
+html[data-theme="dark"] .preview-cta {
+    color: #ffffff !important;
+}
+
+/* Photo placeholder */
+html[data-theme="dark"] .profile-photo-placeholder {
+    background: #26352b !important;
+    color: #d8e6da !important;
+    border-color: #435448 !important;
+}
+
+/* Footer */
+html[data-theme="dark"] .portfolio-footer,
+html[data-theme="dark"] .sidebar-bottom {
+    background: #171e19 !important;
+    color: #a9c3ae !important;
+    border-color: #344238 !important;
+}
+
+/* Status text */
+html[data-theme="dark"] .status-message {
+    color: #c2d9c6 !important;
+}
+
+
+/* =========================================
+   FIX FADED TEXT IN CREATIVE PORTFOLIO
+========================================= */
+
+html[data-theme="dark"] #creativePortfolioPage,
+html[data-theme="dark"] #creativePortfolioPage * {
+    opacity: 1 !important;
+    text-shadow: none;
+}
+
+/* Main portfolio text */
+html[data-theme="dark"] #creativePortfolioPage h1,
+html[data-theme="dark"] #creativePortfolioPage h2,
+html[data-theme="dark"] #creativePortfolioPage h3,
+html[data-theme="dark"] #creativePortfolioPage p,
+html[data-theme="dark"] #creativePortfolioPage span,
+html[data-theme="dark"] #creativePortfolioPage li,
+html[data-theme="dark"] #creativePortfolioPage a,
+html[data-theme="dark"] #creativePortfolioPage .portfolio-brand,
+html[data-theme="dark"] #creativePortfolioPage .portfolio-links a,
+html[data-theme="dark"] #creativePortfolioPage .sidebar-caption,
+html[data-theme="dark"] #creativePortfolioPage .sidebar-label,
+html[data-theme="dark"] #creativePortfolioPage .section-label,
+html[data-theme="dark"] #creativePortfolioPage .hero-label {
+    color: #e4ebe5 !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #e4ebe5 !important;
+}
+
+/* Secondary text */
+html[data-theme="dark"] #creativePortfolioPage .sidebar-caption,
+html[data-theme="dark"] #creativePortfolioPage .sidebar-label,
+html[data-theme="dark"] #creativePortfolioPage .section-label,
+html[data-theme="dark"] #creativePortfolioPage .hero-label,
+html[data-theme="dark"] #creativePortfolioPage .availability {
+    color: #b8cbbd !important;
+    -webkit-text-fill-color: #b8cbbd !important;
+}
+
+/* Main preview background */
+html[data-theme="dark"] #creativePortfolioPage,
+html[data-theme="dark"] #creativePortfolioPage .portfolio-main,
+html[data-theme="dark"] #creativePortfolioPage .modern-hero,
+html[data-theme="dark"] #creativePortfolioPage .content-section {
+    background-color: #171e19 !important;
+}
+
+/* Sidebar and project card */
+html[data-theme="dark"] #creativePortfolioPage .profile-sidebar,
+html[data-theme="dark"] #creativePortfolioPage .project-card,
+html[data-theme="dark"] #creativePortfolioPage .contact-section {
+    background-color: #202a23 !important;
+}
+
+/* Navigation */
+html[data-theme="dark"] #creativePortfolioPage .portfolio-nav {
+    background-color: #171e19 !important;
+}
+
+/* Keep accent text visible */
+html[data-theme="dark"] #creativePortfolioPage .modern-hero h2 span,
+html[data-theme="dark"] #creativePortfolioPage .portfolio-brand span {
+    color: #a9d6b2 !important;
+    -webkit-text-fill-color: #a9d6b2 !important;
+}
+
+/* Keep buttons readable */
+html[data-theme="dark"] #creativePortfolioPage .preview-cta,
+html[data-theme="dark"] #creativePortfolioPage .sidebar-button {
+    opacity: 1 !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Portfolio footer */
+html[data-theme="dark"] #creativePortfolioPage .portfolio-footer,
+html[data-theme="dark"] #creativePortfolioPage .sidebar-bottom {
+    opacity: 1 !important;
+    color: #b8cbbd !important;
+}

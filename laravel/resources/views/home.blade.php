@@ -1,3 +1,4 @@
+
 <!-- PORTECH HOMEPAGE TEST -->
 <!DOCTYPE html>
 <html lang="en">
@@ -7,6 +8,7 @@
 
     <title>Portech - Portfolio Generator</title>
 
+    <link rel="stylesheet" href="/css/dark-mode.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -26,6 +28,17 @@
         </nav>
 
         <div class="buttons">
+
+            <!-- DARK MODE / LIGHT MODE -->
+            <button
+                type="button"
+                class="theme-toggle"
+                data-theme-toggle
+                aria-label="Switch to dark mode"
+                title="Dark mode">
+                🌙
+            </button>
+
             <button class="login-btn" id="loginButton" type="button">
                 Log In
             </button>
@@ -33,6 +46,7 @@
             <button class="signup-btn" id="signupButton" type="button">
                 Sign Up
             </button>
+
         </div>
     </header>
 
@@ -58,9 +72,8 @@
             </p>
 
             <div class="home-buttons">
-                <!-- Opens the Templates selection page -->
                 <a href="/templates" class="get-started">
-                     Get Started
+                    Get Started
                 </a>
 
                 <a href="#about" class="learn-more">
@@ -170,12 +183,11 @@
                         suitable for students and professionals.
                     </p>
 
-                    
-                        <a 
-                            href="/portfolio/create?template=modern" class="template-button">
-                                Choose Template
-                        </a>
-
+                    <a
+                        href="/portfolio/create?template=modern"
+                        class="template-button">
+                        Choose Template
+                    </a>
                 </div>
             </div>
 
@@ -208,7 +220,7 @@
                     </p>
 
                     <a
-                        href="/portfolio/create?template=creative" 
+                        href="/portfolio/create?template=creative"
                         class="template-button">
                         Choose Template
                     </a>
@@ -241,7 +253,7 @@
                     </p>
 
                     <a
-                        href="/portfolio/create?template=minimal" 
+                        href="/portfolio/create?template=minimal"
                         class="template-button">
                         Choose Template
                     </a>
@@ -454,7 +466,6 @@
     </div>
 
 
-    
     <!-- ================= SCRIPTS ================= -->
 
     <!-- SUPABASE LIBRARY -->
@@ -469,6 +480,8 @@
     <!-- HOMEPAGE AUTHENTICATION -->
     <script src="/js/main.js?v=5"></script>
 
+    <!-- DARK MODE / LIGHT MODE -->
+    <script src="/js/theme.js" defer></script>
 
 </body>
 </html>

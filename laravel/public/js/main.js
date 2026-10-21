@@ -56,14 +56,21 @@ function showSignupPopup() {
 }
 
 function getPostLoginDestination() {
-    const next = new URLSearchParams(window.location.search).get("next");
+    const next = new URLSearchParams(
+        window.location.search
+    ).get("next");
 
-    if (!next) return "/dashboard";
+    if (!next) {
+        return "/dashboard";
+    }
 
     let destination;
 
     try {
-        destination = new URL(next, window.location.origin);
+        destination = new URL(
+            next,
+            window.location.origin
+        );
     } catch {
         return "/dashboard";
     }
@@ -141,12 +148,18 @@ if (signupPopup) {
 
 /* =========================
    UPDATE HOMEPAGE HEADER
+   PRESERVE DARK MODE TOGGLE
 ========================= */
 
 function updateHeader(session) {
     const buttons = document.querySelector(".buttons");
 
     if (!buttons) return;
+
+    // Save the existing dark mode toggle before updating the header.
+    const themeToggle = buttons.querySelector(
+        "[data-theme-toggle]"
+    );
 
     if (session) {
         buttons.innerHTML = `
@@ -163,13 +176,8 @@ function updateHeader(session) {
                     <circle cx="12" cy="8" r="4"></circle>
                     <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path>
                 </svg>
-
             </a>
         `;
-
-        closePopup(loginPopup);
-        closePopup(signupPopup);
-
     } else {
         buttons.innerHTML = `
             <button
@@ -187,6 +195,14 @@ function updateHeader(session) {
             </button>
         `;
     }
+
+    // Restore the same toggle element so theme.js keeps working.
+    if (themeToggle) {
+        buttons.prepend(themeToggle);
+    }
+
+    closePopup(loginPopup);
+    closePopup(signupPopup);
 }
 
 
@@ -200,13 +216,18 @@ const navLinks = document.querySelectorAll(
 
 const navSections = Array.from(navLinks)
     .map(link => {
-        return document.querySelector(link.getAttribute("href"));
+        return document.querySelector(
+            link.getAttribute("href")
+        );
     })
     .filter(section => section !== null);
 
 function updateActiveNavigation() {
     const header = document.querySelector("header");
-    const headerHeight = header ? header.offsetHeight : 0;
+
+    const headerHeight = header
+        ? header.offsetHeight
+        : 0;
 
     const scrollPosition =
         window.scrollY + headerHeight + 120;
@@ -222,9 +243,13 @@ function updateActiveNavigation() {
     navLinks.forEach(link => {
         const isActive =
             activeSection &&
-            link.getAttribute("href") === `#${activeSection.id}`;
+            link.getAttribute("href") ===
+                `#${activeSection.id}`;
 
-        link.classList.toggle("active", Boolean(isActive));
+        link.classList.toggle(
+            "active",
+            Boolean(isActive)
+        );
 
         if (isActive) {
             link.setAttribute("aria-current", "location");
@@ -233,6 +258,7 @@ function updateActiveNavigation() {
         }
     });
 }
+
 
 // Update the underline when a navigation link is clicked.
 navLinks.forEach(link => {
@@ -246,12 +272,18 @@ navLinks.forEach(link => {
     });
 });
 
-// Update the active section while scrolling.
-window.addEventListener("scroll", updateActiveNavigation, {
-    passive: true
-});
 
-window.addEventListener("resize", updateActiveNavigation);
+// Update the active section while scrolling.
+window.addEventListener(
+    "scroll",
+    updateActiveNavigation,
+    { passive: true }
+);
+
+window.addEventListener(
+    "resize",
+    updateActiveNavigation
+);
 
 
 /* =========================
@@ -300,7 +332,8 @@ if (loginForm && supabaseClient) {
                 updateHeader(data.session);
                 closePopup(loginPopup);
 
-                window.location.href = getPostLoginDestination();
+                window.location.href =
+                    getPostLoginDestination();
             } else {
                 alert(
                     "No active session was returned. " +
@@ -310,7 +343,10 @@ if (loginForm && supabaseClient) {
 
         } catch (error) {
             console.error("Login error:", error);
-            alert("Something went wrong while logging in.");
+
+            alert(
+                "Something went wrong while logging in."
+            );
 
         } finally {
             if (submitButton) {
@@ -320,7 +356,6 @@ if (loginForm && supabaseClient) {
         }
     });
 }
-
 
 
 /* =========================
@@ -357,7 +392,9 @@ if (signupForm && supabaseClient) {
         }
 
         if (password.length < 6) {
-            alert("Your password must be at least 6 characters long.");
+            alert(
+                "Your password must be at least 6 characters long."
+            );
             return;
         }
 
@@ -420,7 +457,10 @@ if (signupForm && supabaseClient) {
 
         } catch (error) {
             console.error("Signup error:", error);
-            alert("Something went wrong while creating your account.");
+
+            alert(
+                "Something went wrong while creating your account."
+            );
 
         } finally {
             if (submitButton) {
@@ -430,7 +470,6 @@ if (signupForm && supabaseClient) {
         }
     });
 }
-
 
 
 /* =========================
@@ -451,13 +490,17 @@ async function checkLoginSession() {
                 "Could not retrieve session:",
                 error.message
             );
+
             return;
         }
 
         updateHeader(session);
 
     } catch (error) {
-        console.error("Session check failed:", error);
+        console.error(
+            "Session check failed:",
+            error
+        );
     }
 }
 
@@ -465,7 +508,6 @@ async function checkLoginSession() {
 /* =========================
    LISTEN FOR AUTH CHANGES
 ========================= */
-
 
 if (supabaseClient) {
     supabaseClient.auth.onAuthStateChange(
@@ -481,14 +523,16 @@ if (supabaseClient) {
 }
 
 
-
 /* =========================
    INITIALIZE HOMEPAGE
 ========================= */
 
 checkLoginSession();
+
 updateActiveNavigation();
 
-if (new URLSearchParams(window.location.search).get("login") === "1") {
+if (
+    new URLSearchParams(window.location.search).get("login") === "1"
+) {
     showLoginPopup();
 }

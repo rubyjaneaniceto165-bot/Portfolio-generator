@@ -8,6 +8,7 @@
 
     <title>Portech - Account Settings</title>
 
+    <link rel="stylesheet" href="/css/dark-mode.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="stylesheet" href="/css/profile.css">
@@ -61,15 +62,30 @@
     <!-- MAIN CONTENT -->
     <main class="dashboard-main">
 
+        <!-- TOPBAR -->
         <header class="dashboard-topbar">
             <div>
                 <p class="topbar-label">PORTECH WORKSPACE</p>
                 <p class="topbar-subtitle">Manage your account security</p>
             </div>
 
-            <a href="/profile" class="secondary-button">
-                My Profile →
-            </a>
+            <!-- DARK MODE AND PROFILE BUTTONS -->
+            <div class="topbar-actions">
+
+                <button
+                    type="button"
+                    class="theme-toggle"
+                    data-theme-toggle
+                    aria-label="Switch to dark mode"
+                    title="Dark mode">
+                    🌙
+                </button>
+
+                <a href="/profile" class="secondary-button">
+                    My Profile →
+                </a>
+
+            </div>
         </header>
 
         <div class="profile-container">
@@ -230,7 +246,6 @@
     </main>
 </div>
 
-
 <!-- SUPABASE LIBRARY -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -240,6 +255,8 @@
 <!-- ACCOUNT SETTINGS FUNCTIONALITY -->
 <script src="/js/account-settings.js?v=4"></script>
 
+<!-- DARK MODE FUNCTIONALITY -->
+<script src="/js/theme.js"></script>
 
 </body>
 </html>

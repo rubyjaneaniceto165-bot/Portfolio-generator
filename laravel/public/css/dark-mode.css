@@ -1,0 +1,717 @@
+
+/* =========================================
+   PORTECH GLOBAL DARK MODE
+   Soft charcoal + muted green
+========================================= */
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+
+    --theme-bg: #171d1a;
+    --theme-surface: #202823;
+    --theme-card: #252f29;
+    --theme-input: #1b241f;
+    --theme-text: #e4ebe5;
+    --theme-muted: #b0bcb3;
+    --theme-border: #39473e;
+    --theme-green: #8eb99b;
+    --theme-green-hover: #a3c9ae;
+    --theme-button: #28543a;
+    --theme-button-hover: #356b49;
+    --theme-shadow: rgba(0, 0, 0, 0.25);
+}
+
+/* Main page */
+
+html[data-theme="dark"] body {
+    background-color: var(--theme-bg);
+    color: var(--theme-text);
+}
+
+/* Header and navigation */
+
+html[data-theme="dark"] header {
+    background-color: var(--theme-surface);
+    border-bottom-color: var(--theme-border);
+}
+
+html[data-theme="dark"] .logo,
+html[data-theme="dark"] .home-text h1,
+html[data-theme="dark"] .section-title h2,
+html[data-theme="dark"] .template-title h2,
+html[data-theme="dark"] .about-text h2,
+html[data-theme="dark"] .template-info h3,
+html[data-theme="dark"] .contact-box h3,
+html[data-theme="dark"] .step-card h3 {
+    color: var(--theme-text);
+}
+
+html[data-theme="dark"] nav a {
+    color: var(--theme-muted);
+}
+
+html[data-theme="dark"] nav a:hover,
+html[data-theme="dark"] nav a.active {
+    color: var(--theme-green);
+}
+
+html[data-theme="dark"] header nav a::after {
+    background-color: var(--theme-green);
+}
+
+/* Homepage sections */
+
+html[data-theme="dark"] .guide-section {
+    background-color: var(--theme-bg);
+}
+
+html[data-theme="dark"] .home-text h1 span,
+html[data-theme="dark"] .step-number {
+    color: var(--theme-green);
+}
+
+html[data-theme="dark"] .home-text p,
+html[data-theme="dark"] .section-title p,
+html[data-theme="dark"] .template-title p,
+html[data-theme="dark"] .about-text p,
+html[data-theme="dark"] .step-card p,
+html[data-theme="dark"] .template-info p,
+html[data-theme="dark"] .contact-box > p,
+html[data-theme="dark"] .location p {
+    color: var(--theme-muted);
+}
+
+/* Cards and containers */
+
+html[data-theme="dark"] .step-card,
+html[data-theme="dark"] .template-card,
+html[data-theme="dark"] .contact-box {
+    background-color: var(--theme-card);
+    border-color: var(--theme-border);
+    box-shadow: 0 8px 24px var(--theme-shadow);
+}
+
+html[data-theme="dark"] .about-section {
+    background-color: var(--theme-bg);
+}
+
+html[data-theme="dark"] .location {
+    border-top-color: var(--theme-border);
+}
+
+/* Template previews */
+
+html[data-theme="dark"] .template-one {
+    background-color: #303a33;
+}
+
+html[data-theme="dark"] .template-two {
+    background-color: #141916;
+}
+
+html[data-theme="dark"] .preview-main {
+    background-color: #29332c;
+}
+
+html[data-theme="dark"] .template-three {
+    background-color: #303832;
+}
+
+html[data-theme="dark"] .preview-title {
+    color: var(--theme-text);
+}
+
+html[data-theme="dark"] .preview-lines span,
+html[data-theme="dark"] .preview-grid div {
+    background-color: #657268;
+}
+
+/* Buttons */
+
+html[data-theme="dark"] .login-btn {
+    background-color: var(--theme-surface);
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+}
+
+html[data-theme="dark"] .login-btn:hover {
+    background-color: var(--theme-card);
+}
+
+html[data-theme="dark"] .signup-btn,
+html[data-theme="dark"] .get-started,
+html[data-theme="dark"] .template-button,
+html[data-theme="dark"] .submit-button {
+    background-color: var(--theme-button);
+    border-color: var(--theme-button);
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .signup-btn:hover,
+html[data-theme="dark"] .get-started:hover,
+html[data-theme="dark"] .template-button:hover,
+html[data-theme="dark"] .submit-button:hover {
+    background-color: var(--theme-button-hover);
+}
+
+html[data-theme="dark"] .learn-more {
+    color: var(--theme-green);
+    border-color: var(--theme-green);
+}
+
+html[data-theme="dark"] .learn-more:hover {
+    background-color: var(--theme-button);
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .social-link,
+html[data-theme="dark"] .switch-text span {
+    color: var(--theme-green);
+}
+
+/* Profile icon and dashboard button */
+
+html[data-theme="dark"] .buttons .profile-icon-btn {
+    background-color: var(--theme-card);
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+}
+
+html[data-theme="dark"] .buttons .profile-icon-btn:hover {
+    background-color: var(--theme-button);
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .buttons .login-btn[href="/dashboard"] {
+    background: linear-gradient(135deg, #28543a, #356b49);
+    border-color: #356b49;
+    color: #ffffff;
+}
+
+/* Footer */
+
+html[data-theme="dark"] footer {
+    background-color: #101713;
+    color: var(--theme-text);
+}
+
+html[data-theme="dark"] footer p {
+    color: var(--theme-muted);
+}
+
+/* Login and signup popups */
+
+html[data-theme="dark"] .popup {
+    background-color: rgba(0, 0, 0, 0.72);
+}
+
+html[data-theme="dark"] .form-box {
+    background-color: var(--theme-surface);
+    color: var(--theme-text);
+    border: 1px solid var(--theme-border);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="dark"] .form-box h2,
+html[data-theme="dark"] .form-box label {
+    color: var(--theme-text);
+}
+
+html[data-theme="dark"] .form-box input,
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+    background-color: var(--theme-input);
+    color: var(--theme-text);
+    border-color: var(--theme-border);
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+    color: #87968b;
+}
+
+html[data-theme="dark"] .form-box input:focus,
+html[data-theme="dark"] input:focus,
+html[data-theme="dark"] textarea:focus,
+html[data-theme="dark"] select:focus {
+    border-color: var(--theme-green);
+    outline-color: var(--theme-green);
+}
+
+html[data-theme="dark"] .close {
+    color: var(--theme-muted);
+}
+
+html[data-theme="dark"] .close:hover {
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .switch-text {
+    color: var(--theme-muted);
+}
+
+/* Common dashboard, profile, settings and editor elements */
+
+html[data-theme="dark"] main,
+html[data-theme="dark"] .main-content,
+html[data-theme="dark"] .content,
+html[data-theme="dark"] .dashboard-content,
+html[data-theme="dark"] .editor-container,
+html[data-theme="dark"] .settings-container,
+html[data-theme="dark"] .profile-container {
+    color: var(--theme-text);
+}
+
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .settings-card,
+html[data-theme="dark"] .profile-card,
+html[data-theme="dark"] .dashboard-card,
+html[data-theme="dark"] .editor-card,
+html[data-theme="dark"] .form-container,
+html[data-theme="dark"] .form-section {
+    background-color: var(--theme-card);
+    color: var(--theme-text);
+    border-color: var(--theme-border);
+}
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] label {
+    color: var(--theme-text);
+}
+
+html[data-theme="dark"] p,
+html[data-theme="dark"] small,
+html[data-theme="dark"] .description,
+html[data-theme="dark"] .muted {
+    color: var(--theme-muted);
+}
+
+html[data-theme="dark"] hr {
+    border-color: var(--theme-border);
+}
+
+html[data-theme="dark"] table th,
+html[data-theme="dark"] table td {
+    border-color: var(--theme-border);
+}
+
+html[data-theme="dark"] a {
+    transition: color 0.2s ease;
+}
+
+/* Theme toggle button */
+
+.theme-toggle {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    border: 1px solid #d8d8cc;
+    border-radius: 50%;
+
+    background-color: #ffffff;
+    color: #234a37;
+
+    font-size: 20px;
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    background-color: #e9eee8;
+}
+
+html[data-theme="dark"] .theme-toggle {
+    background-color: #303a34;
+    color: #e5d9a8;
+    border-color: #48564b;
+}
+
+html[data-theme="dark"] .theme-toggle:hover {
+    background-color: #3b483f;
+}
+
+/* Respect reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+    html[data-theme="dark"] *,
+    html[data-theme="dark"] *::before,
+    html[data-theme="dark"] *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* Dashboard dark mode */
+html[data-theme="dark"] .sidebar {
+    background: #202923 !important;
+    color: #e2e9e3 !important;
+    border-color: #344239 !important;
+}
+
+html[data-theme="dark"] .sidebar .brand,
+html[data-theme="dark"] .sidebar .nav-link,
+html[data-theme="dark"] .sidebar .sidebar-label {
+    color: #d5e0d7 !important;
+}
+
+html[data-theme="dark"] .sidebar .nav-link.active {
+    background: #34483a !important;
+    color: #b9dfc0 !important;
+}
+
+html[data-theme="dark"] .sidebar .sidebar-tip {
+    background: #29362d !important;
+    border-color: #3c4c40 !important;
+    color: #e2e9e3 !important;
+}
+
+html[data-theme="dark"] .sidebar .sidebar-tip h3,
+html[data-theme="dark"] .sidebar .sidebar-tip p {
+    color: #d5e0d7 !important;
+}
+
+html[data-theme="dark"] .sidebar .sidebar-logout {
+    background: #302725 !important;
+    color: #ffb8aa !important;
+    border-color: #59403a !important;
+}
+
+/* Place the theme button directly left of the profile */
+.dashboard-topbar .topbar-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.dashboard-topbar .theme-toggle {
+    position: static !important;
+    display: inline-flex !important;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+/* FIX FADED DASHBOARD TEXT IN DARK MODE */
+html[data-theme="dark"] .welcome-content h1,
+html[data-theme="dark"] .welcome-content h1 span,
+html[data-theme="dark"] .welcome-content p,
+html[data-theme="dark"] .summary-card h2,
+html[data-theme="dark"] .summary-card p,
+html[data-theme="dark"] .summary-card span,
+html[data-theme="dark"] .section-title,
+html[data-theme="dark"] .section-description,
+html[data-theme="dark"] .portfolio-card h3,
+html[data-theme="dark"] .portfolio-card p,
+html[data-theme="dark"] .topbar-subtitle,
+html[data-theme="dark"] .user-info span {
+    color: #263b2e !important;
+    opacity: 1 !important;
+}
+
+/* Keep the welcome heading clearly visible */
+html[data-theme="dark"] .welcome-content h1 {
+    color: #263b2e !important;
+}
+
+/* Make dashboard statistics readable */
+html[data-theme="dark"] .summary-card h2 {
+    color: #263b2e !important;
+    font-weight: 700;
+}
+
+html[data-theme="dark"] .summary-card p,
+html[data-theme="dark"] .summary-card span,
+html[data-theme="dark"] .welcome-content p,
+html[data-theme="dark"] .section-description {
+    color: #536157 !important;
+}
+
+/* Prevent parent elements from fading their contents */
+html[data-theme="dark"] .welcome-content,
+html[data-theme="dark"] .summary-card,
+html[data-theme="dark"] .dashboard-main {
+    opacity: 1 !important;
+}
+
+
+
+/* =====================================
+   PORTECH MODERN EDITOR - DARK MODE
+===================================== */
+
+html[data-theme="dark"] body {
+    background: #151b18 !important;
+    color: #e4ebe5 !important;
+}
+
+/* Header */
+html[data-theme="dark"] .editor-header {
+    background: #1c2620 !important;
+    border-color: #344238 !important;
+}
+
+html[data-theme="dark"] .editor-header .brand span,
+html[data-theme="dark"] .editor-label,
+html[data-theme="dark"] .back-link {
+    color: #e0e9e2 !important;
+}
+
+/* Form and preview panels */
+html[data-theme="dark"] .form-panel,
+html[data-theme="dark"] .preview-panel {
+    background: #1c2620 !important;
+    color: #e4ebe5 !important;
+    border-color: #344238 !important;
+}
+
+/* Headings and descriptions */
+html[data-theme="dark"] .panel-heading h1,
+html[data-theme="dark"] .preview-heading h2,
+html[data-theme="dark"] .panel-heading p,
+html[data-theme="dark"] .form-panel label {
+    color: #e4ebe5 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .eyebrow,
+html[data-theme="dark"] .field-hint {
+    color: #a9c3ae !important;
+    opacity: 1 !important;
+}
+
+/* Input fields */
+html[data-theme="dark"] .form-panel input,
+html[data-theme="dark"] .form-panel textarea {
+    background: #222e26 !important;
+    color: #f0f5f1 !important;
+    border-color: #435448 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .form-panel input::placeholder,
+html[data-theme="dark"] .form-panel textarea::placeholder {
+    color: #a2b0a5 !important;
+    opacity: 1 !important;
+}
+
+/* Buttons */
+html[data-theme="dark"] .button-light {
+    background: #303c33 !important;
+    color: #e4ebe5 !important;
+    border-color: #46564a !important;
+}
+
+/* Status and validation messages */
+html[data-theme="dark"] .status-message,
+html[data-theme="dark"] .field-error {
+    color: #c2d9c6 !important;
+}
+
+/* Live preview surrounding area */
+html[data-theme="dark"] .preview-panel {
+    background: #1c2620 !important;
+}
+
+/* Keep the theme button visible */
+html[data-theme="dark"] .theme-toggle {
+    background: #303c33 !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+
+/* =====================================
+   PORTECH DASHBOARD - COMPLETE DARK MODE
+===================================== */
+
+html[data-theme="dark"] body {
+    background: #111713 !important;
+    color: #e4ebe5 !important;
+}
+
+/* Main dashboard containers */
+html[data-theme="dark"] main,
+html[data-theme="dark"] .dashboard,
+html[data-theme="dark"] .dashboard-container,
+html[data-theme="dark"] .dashboard-content,
+html[data-theme="dark"] .dashboard-main,
+html[data-theme="dark"] .page-container {
+    background-color: #111713 !important;
+    color: #e4ebe5 !important;
+}
+
+/* Header and navigation */
+html[data-theme="dark"] header,
+html[data-theme="dark"] .header,
+html[data-theme="dark"] .navbar,
+html[data-theme="dark"] .dashboard-header,
+html[data-theme="dark"] nav {
+    background-color: #19221c !important;
+    color: #e4ebe5 !important;
+    border-color: #303d33 !important;
+}
+
+/* All common dashboard cards */
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .dashboard-card,
+html[data-theme="dark"] .stat-card,
+html[data-theme="dark"] .task-card,
+html[data-theme="dark"] .welcome-card,
+html[data-theme="dark"] .portfolio-card,
+html[data-theme="dark"] .profile-card,
+html[data-theme="dark"] .content-card,
+html[data-theme="dark"] .empty-state {
+    background-color: #1b251e !important;
+    color: #e4ebe5 !important;
+    border-color: #344238 !important;
+    box-shadow: none !important;
+}
+
+/* Headings and readable text */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] p,
+html[data-theme="dark"] label,
+html[data-theme="dark"] li,
+html[data-theme="dark"] small,
+html[data-theme="dark"] span,
+html[data-theme="dark"] strong {
+    opacity: 1;
+}
+
+html[data-theme="dark"] .dashboard h1,
+html[data-theme="dark"] .dashboard h2,
+html[data-theme="dark"] .dashboard h3,
+html[data-theme="dark"] .dashboard-container h1,
+html[data-theme="dark"] .dashboard-container h2,
+html[data-theme="dark"] .dashboard-container h3,
+html[data-theme="dark"] .dashboard-content p,
+html[data-theme="dark"] .dashboard-content label {
+    color: #e4ebe5 !important;
+    -webkit-text-fill-color: #e4ebe5;
+}
+
+/* Muted descriptions */
+html[data-theme="dark"] .muted,
+html[data-theme="dark"] .subtitle,
+html[data-theme="dark"] .description,
+html[data-theme="dark"] .text-muted {
+    color: #b3c0b6 !important;
+    -webkit-text-fill-color: #b3c0b6;
+}
+
+/* Links */
+html[data-theme="dark"] a {
+    color: #a9d6b2;
+}
+
+html[data-theme="dark"] a:hover {
+    color: #d0ead5;
+}
+
+/* Inputs, textareas, and dropdowns */
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+    background-color: #151c17 !important;
+    color: #edf3ee !important;
+    border-color: #435448 !important;
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+    color: #9eada2 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] input:focus,
+html[data-theme="dark"] textarea:focus,
+html[data-theme="dark"] select:focus {
+    outline: 2px solid #739b7b;
+    outline-offset: 1px;
+}
+
+/* Buttons */
+html[data-theme="dark"] button {
+    border-color: #435448;
+}
+
+html[data-theme="dark"] .primary-btn,
+html[data-theme="dark"] .create-btn,
+html[data-theme="dark"] .create-portfolio-btn,
+html[data-theme="dark"] .btn-primary {
+    background-color: #355c40 !important;
+    color: #ffffff !important;
+    border-color: #426d4e !important;
+}
+
+html[data-theme="dark"] .primary-btn:hover,
+html[data-theme="dark"] .create-btn:hover,
+html[data-theme="dark"] .create-portfolio-btn:hover,
+html[data-theme="dark"] .btn-primary:hover {
+    background-color: #426d4e !important;
+}
+
+/* Tables */
+html[data-theme="dark"] table,
+html[data-theme="dark"] th,
+html[data-theme="dark"] td {
+    background-color: #1b251e !important;
+    color: #e4ebe5 !important;
+    border-color: #344238 !important;
+}
+
+/* Dividers and borders */
+html[data-theme="dark"] hr,
+html[data-theme="dark"] .divider {
+    border-color: #344238 !important;
+}
+
+/* Dropdown menus */
+html[data-theme="dark"] .dropdown-menu,
+html[data-theme="dark"] .dropdown-content,
+html[data-theme="dark"] .menu {
+    background-color: #1b251e !important;
+    color: #e4ebe5 !important;
+    border-color: #344238 !important;
+}
+
+/* Modals and popup windows */
+html[data-theme="dark"] .modal,
+html[data-theme="dark"] .modal-content,
+html[data-theme="dark"] .popup,
+html[data-theme="dark"] .popup-content {
+    background-color: #1b251e !important;
+    color: #e4ebe5 !important;
+    border-color: #344238 !important;
+}
+
+/* Footer */
+html[data-theme="dark"] footer {
+    background-color: #101612 !important;
+    color: #c4d0c7 !important;
+    border-color: #303d33 !important;
+}

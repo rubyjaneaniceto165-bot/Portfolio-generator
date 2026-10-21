@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,26 +6,43 @@
 
     <title>Choose a Template | Portech</title>
 
+    <link rel="stylesheet" href="/css/dark-mode.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/templates.css">
 </head>
 <body>
 
     <!-- HEADER -->
-        <header class="templates-header">
-            <a href="/" class="templates-logo">
-                <img src="/images/logo.png" alt="Portech Logo">
-                <span>Portech</span>
+    <header class="templates-header">
+
+        <a href="/" class="templates-logo">
+            <img src="/images/logo.png" alt="Portech Logo">
+            <span>Portech</span>
+        </a>
+
+        <div class="templates-nav-buttons">
+
+            <!-- DARK MODE BUTTON -->
+            <button
+                type="button"
+                id="themeToggle"
+                class="theme-toggle"
+                data-theme-toggle
+                aria-label="Switch to dark mode"
+                title="Switch theme">
+                🌙
+            </button>
+
+            <a href="/dashboard" class="dashboard-link">
+                Dashboard
             </a>
 
-            <div class="templates-nav-buttons">
-                <a href="/dashboard" class="dashboard-link">Dashboard</a>
-                <a href="/" class="back-link">← Back to Home</a>
-            </div>
-        </header>
+            <a href="/" class="back-link">
+                ← Back to Home
+            </a>
 
-
-
+        </div>
+    </header>
 
     <!-- MAIN CONTENT -->
     <main class="templates-container">
@@ -41,7 +57,6 @@
                 You can customize your portfolio next.
             </p>
         </section>
-
 
         <!-- TEMPLATE CARDS -->
         <section class="templates-grid">
@@ -82,7 +97,6 @@
 
             </article>
 
-
             <!-- CREATIVE TEMPLATE -->
             <article class="template-card">
 
@@ -110,17 +124,14 @@
                         artists, developers, and creatives.
                     </p>
 
-                    
-                    <a 
+                    <a
                         href="/portfolio/create?template=creative"
                         class="template-button">
                         Choose Template
                     </a>
-
                 </div>
 
             </article>
-
 
             <!-- MINIMAL TEMPLATE -->
             <article class="template-card">
@@ -156,9 +167,7 @@
             </article>
 
         </section>
-
     </main>
-
 
     <!-- FOOTER -->
     <footer class="templates-footer">
@@ -171,8 +180,13 @@
         </p>
     </footer>
 
+    <!-- SUPABASE -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-config.js"></script>
     <script src="/js/portfolio-access.js"></script>
+
+    <!-- DARK MODE -->
+    <script src="/js/theme.js"></script>
+
 </body>
 </html>

@@ -894,3 +894,565 @@ a {
         flex: 1;
     }
 }
+
+
+/* ========================================
+   PORTECH DASHBOARD - CLEAR TEXT
+======================================== */
+
+/* Improve secondary text readability */
+.summary-card p {
+    color: #536157;
+}
+
+.summary-card span {
+    color: #59665c;
+}
+
+.section-description {
+    color: #59665c;
+}
+
+.empty-state p {
+    color: #59665c;
+}
+
+.dashboard-message {
+    color: #536157;
+}
+
+.dashboard-footer {
+    color: #59665c;
+}
+
+.sidebar-label {
+    color: #687568;
+}
+
+.sidebar .nav-link {
+    color: #536157;
+}
+
+.sidebar-tip p {
+    color: #59665c;
+}
+
+.user-info span {
+    color: #59665c;
+}
+
+.topbar-subtitle {
+    color: #59665c;
+}
+
+.portfolio-card-date {
+    color: #536157;
+}
+
+.section-eyebrow {
+    color: #536b5b;
+}
+
+/* Keep text fully visible */
+.dashboard-main,
+.dashboard-main p,
+.dashboard-main h1,
+.dashboard-main h2,
+.dashboard-main h3,
+.sidebar,
+.sidebar a {
+    opacity: 1;
+}
+
+/* Dark mode readability */
+html[data-theme="dark"] .summary-card p,
+html[data-theme="dark"] .summary-card span,
+html[data-theme="dark"] .section-description,
+html[data-theme="dark"] .empty-state p,
+html[data-theme="dark"] .dashboard-message,
+html[data-theme="dark"] .dashboard-footer,
+html[data-theme="dark"] .sidebar-label,
+html[data-theme="dark"] .sidebar .nav-link,
+html[data-theme="dark"] .sidebar-tip p,
+html[data-theme="dark"] .user-info span,
+html[data-theme="dark"] .topbar-subtitle,
+html[data-theme="dark"] .portfolio-card-date,
+html[data-theme="dark"] .section-eyebrow {
+    color: #c5d2c8 !important;
+}
+
+
+/* ==========================================
+   PORTECH DASHBOARD - COMPLETE DARK MODE
+   ========================================== */
+
+html[data-theme="dark"] body {
+    background: #101511 !important;
+    color: #e5ece6 !important;
+}
+
+/* Main layout */
+html[data-theme="dark"] .dashboard-layout {
+    background: #101511 !important;
+    color: #e5ece6 !important;
+}
+
+/* Sidebar */
+html[data-theme="dark"] .sidebar {
+    background: #171e19 !important;
+    border-right: 1px solid #2c382f !important;
+    color: #e5ece6 !important;
+}
+
+html[data-theme="dark"] .brand,
+html[data-theme="dark"] .brand span {
+    color: #e5ece6 !important;
+}
+
+html[data-theme="dark"] .sidebar-label {
+    color: #91a397 !important;
+}
+
+html[data-theme="dark"] .nav-link {
+    color: #bdc9bf !important;
+    background: transparent !important;
+}
+
+html[data-theme="dark"] .nav-link:hover,
+html[data-theme="dark"] .nav-link.active {
+    background: #26372b !important;
+    color: #b8e0bf !important;
+}
+
+html[data-theme="dark"] .nav-icon {
+    color: #b8d5bd !important;
+}
+
+/* Sidebar tip */
+html[data-theme="dark"] .sidebar-tip {
+    background: #202b23 !important;
+    border: 1px solid #344539 !important;
+    color: #e5ece6 !important;
+}
+
+html[data-theme="dark"] .sidebar-tip h3 {
+    color: #e5ece6 !important;
+}
+
+html[data-theme="dark"] .sidebar-tip p {
+    color: #b8c5bb !important;
+}
+
+html[data-theme="dark"] .tip-icon {
+    color: #b8dcbf !important;
+}
+
+html[data-theme="dark"] .sidebar-logout {
+    background: #222d25 !important;
+    color: #e5ece6 !important;
+    border: 1px solid #3a4a3d !important;
+}
+
+html[data-theme="dark"] .sidebar-logout:hover {
+    background: #303e33 !important;
+}
+
+/* Main content */
+html[data-theme="dark"] .dashboard-main {
+    background: #101511 !important;
+    color: #e5ece6 !important;
+}
+
+/* Top bar */
+html[data-theme="dark"] .dashboard-topbar {
+    background: #101511 !important;
+    border-bottom: 1px solid #2b362e !important;
+    color: #e5ece6 !important;
+}
+
+html[data-theme="dark"] .topbar-label {
+    color: #b8d7bf !important;
+}
+
+html[data-theme="dark"] .topbar-subtitle {
+    color: #aab8ad !important;
+}
+
+/* Theme toggle */
+html[data-theme="dark"] .theme-toggle {
+    background: #26332a !important;
+    color: #ffffff !important;
+    border: 1px solid #435448 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .theme-toggle:hover {
+    background: #354638 !important;
+}
+
+/* User profile */
+html[data-theme="dark"] .user-profile {
+    color: #e5ece6 !important;
+}
+
+html[data-theme="dark"] .user-info strong {
+    color: #e5ece6 !important;
+}
+
+html[data-theme="dark"] .user-info span {
+    color: #aab8ad !important;
+}
+
+html[data-theme="dark"] .user-avatar {
+    background: #304b37 !important;
+    color: #d6efda !important;
+    border-color: #45634b !important;
+}
+
+/* Welcome section */
+html[data-theme="dark"] .welcome-section {
+    background: #1a261e !important;
+    border: 1px solid #2c3c30 !important;
+    color: #e5ece6 !important;
+    box-shadow: none !important;
+}
+
+html[data-theme="dark"] .welcome-badge {
+    background: #293c2e !important;
+    color: #bce1c3 !important;
+    border-color: #3b5240 !important;
+}
+
+html[data-theme="dark"] .welcome-content h1 {
+    color: #f0f4f0 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .welcome-content h1 span {
+    color: #a9d6b2 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .welcome-content p {
+    color: #c0ccc3 !important;
+    opacity: 1 !important;
+}
+
+/* Welcome illustration */
+html[data-theme="dark"] .art-circle {
+    background: #293a2d !important;
+    opacity: 0.8 !important;
+}
+
+html[data-theme="dark"] .art-paper {
+    background: #202b23 !important;
+    border: 1px solid #3a4a3d !important;
+    box-shadow: 0 12px 35px #00000040 !important;
+}
+
+html[data-theme="dark"] .paper-top {
+    background: #2b382e !important;
+}
+
+html[data-theme="dark"] .paper-avatar {
+    background: #42664a !important;
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .paper-line {
+    background: #536557 !important;
+}
+
+html[data-theme="dark"] .paper-blocks span {
+    background: #344b39 !important;
+}
+
+html[data-theme="dark"] .art-star {
+    color: #b7d9bd !important;
+}
+
+/* Create portfolio button */
+html[data-theme="dark"] .primary-button {
+    background: #42694b !important;
+    color: #ffffff !important;
+    border: 1px solid #527b5b !important;
+    box-shadow: none !important;
+}
+
+html[data-theme="dark"] .primary-button:hover {
+    background: #527c5b !important;
+    color: #ffffff !important;
+}
+
+/* Summary cards */
+html[data-theme="dark"] .summary-grid {
+    background: transparent !important;
+}
+
+html[data-theme="dark"] .summary-card {
+    background: #1a231c !important;
+    color: #e5ece6 !important;
+    border: 1px solid #303d33 !important;
+    box-shadow: none !important;
+}
+
+html[data-theme="dark"] .summary-card p {
+    color: #c3cec5 !important;
+}
+
+html[data-theme="dark"] .summary-card h2 {
+    color: #f0f4f0 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .summary-card span {
+    color: #aab8ad !important;
+}
+
+html[data-theme="dark"] .green-icon {
+    background: #294332 !important;
+    color: #b9e0c1 !important;
+}
+
+html[data-theme="dark"] .cream-icon {
+    background: #39382b !important;
+    color: #e2d9a9 !important;
+}
+
+/* My Portfolios section */
+html[data-theme="dark"] .portfolio-section {
+    background: transparent !important;
+    color: #e5ece6 !important;
+}
+
+html[data-theme="dark"] .section-eyebrow {
+    color: #a9d6b2 !important;
+}
+
+html[data-theme="dark"] .section-heading h2 {
+    color: #edf3ee !important;
+}
+
+html[data-theme="dark"] .section-description {
+    color: #b8c5bb !important;
+}
+
+/* New portfolio button */
+html[data-theme="dark"] .secondary-button {
+    background: #202b23 !important;
+    color: #dce9de !important;
+    border: 1px solid #405244 !important;
+}
+
+html[data-theme="dark"] .secondary-button:hover {
+    background: #2a3a2e !important;
+    color: #ffffff !important;
+}
+
+/* Empty portfolio state */
+html[data-theme="dark"] .empty-state {
+    background: #171e19 !important;
+    color: #e5ece6 !important;
+    border: 1px dashed #3a4a3d !important;
+    box-shadow: none !important;
+}
+
+html[data-theme="dark"] .empty-state h3 {
+    color: #e5ece6 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .empty-state p {
+    color: #b8c5bb !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .empty-illustration {
+    background: #24352a !important;
+    color: #b8dfbf !important;
+}
+
+html[data-theme="dark"] .empty-sparkle {
+    color: #d0e5a9 !important;
+}
+
+/* Saved portfolio cards */
+html[data-theme="dark"] .portfolio-grid {
+    background: transparent !important;
+}
+
+html[data-theme="dark"] .portfolio-grid > *,
+html[data-theme="dark"] .portfolio-card {
+    background: #1b251e !important;
+    color: #e5ece6 !important;
+    border-color: #344238 !important;
+    box-shadow: none !important;
+}
+
+html[data-theme="dark"] .portfolio-card h2,
+html[data-theme="dark"] .portfolio-card h3,
+html[data-theme="dark"] .portfolio-card p,
+html[data-theme="dark"] .portfolio-card span {
+    color: #e5ece6 !important;
+    opacity: 1 !important;
+}
+
+/* Status messages */
+html[data-theme="dark"] .dashboard-message {
+    color: #c7d6ca !important;
+}
+
+/* Footer */
+html[data-theme="dark"] .dashboard-footer {
+    background: #101511 !important;
+    color: #aebbb1 !important;
+    border-top: 1px solid #2b362e !important;
+}
+
+html[data-theme="dark"] .dashboard-footer p,
+html[data-theme="dark"] .dashboard-footer span {
+    color: #aebbb1 !important;
+}
+
+/* General readable text - prevent faded text */
+html[data-theme="dark"] .dashboard-layout h1,
+html[data-theme="dark"] .dashboard-layout h2,
+html[data-theme="dark"] .dashboard-layout h3,
+html[data-theme="dark"] .dashboard-layout h4,
+html[data-theme="dark"] .dashboard-layout p,
+html[data-theme="dark"] .dashboard-layout label,
+html[data-theme="dark"] .dashboard-layout strong {
+    opacity: 1 !important;
+}
+
+/* Avoid bright white backgrounds from common containers */
+html[data-theme="dark"] .dashboard-layout section,
+html[data-theme="dark"] .dashboard-layout article {
+    border-color: #303d33;
+}
+
+/* Smooth theme transition */
+.dashboard-layout,
+.dashboard-layout .sidebar,
+.dashboard-layout .dashboard-main,
+.dashboard-layout .dashboard-topbar,
+.dashboard-layout .welcome-section,
+.dashboard-layout .summary-card,
+.dashboard-layout .empty-state {
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+/* ==========================================
+   FIX DASHBOARD FADED TEXT AND PROFILE
+========================================== */
+
+/* Profile container */
+html[data-theme="dark"] .user-profile {
+    background: #202b23 !important;
+    border: 1px solid #394b3d !important;
+    border-radius: 14px;
+    color: #e8f0e9 !important;
+}
+
+/* Profile name */
+html[data-theme="dark"] .user-info strong,
+html[data-theme="dark"] #topbarName {
+    color: #e8f0e9 !important;
+    -webkit-text-fill-color: #e8f0e9 !important;
+    opacity: 1 !important;
+}
+
+/* My Account label */
+html[data-theme="dark"] .user-info span {
+    color: #b9c9bd !important;
+    -webkit-text-fill-color: #b9c9bd !important;
+    opacity: 1 !important;
+}
+
+/* Profile avatar */
+html[data-theme="dark"] .user-avatar {
+    background: #355640 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border: 1px solid #52785c !important;
+}
+
+/* Portfolio card titles */
+html[data-theme="dark"] .portfolio-grid h2,
+html[data-theme="dark"] .portfolio-grid h3,
+html[data-theme="dark"] .portfolio-card h2,
+html[data-theme="dark"] .portfolio-card h3 {
+    color: #edf4ee !important;
+    -webkit-text-fill-color: #edf4ee !important;
+    opacity: 1 !important;
+}
+
+/* Template badges - fix pale text on pale backgrounds */
+html[data-theme="dark"] .portfolio-grid .template-badge,
+html[data-theme="dark"] .portfolio-grid .template-label,
+html[data-theme="dark"] .portfolio-grid .portfolio-template,
+html[data-theme="dark"] .portfolio-grid .portfolio-type,
+html[data-theme="dark"] .portfolio-grid .template-name {
+    background: #2b4030 !important;
+    color: #c5e5cb !important;
+    -webkit-text-fill-color: #c5e5cb !important;
+    border: 1px solid #405b45 !important;
+    opacity: 1 !important;
+}
+
+/* Portfolio card descriptions and dates */
+html[data-theme="dark"] .portfolio-grid p,
+html[data-theme="dark"] .portfolio-grid span,
+html[data-theme="dark"] .portfolio-card p,
+html[data-theme="dark"] .portfolio-card span {
+    opacity: 1 !important;
+}
+
+/* Make date text readable */
+html[data-theme="dark"] .portfolio-grid .portfolio-date,
+html[data-theme="dark"] .portfolio-card .portfolio-date {
+    color: #c2cec5 !important;
+    -webkit-text-fill-color: #c2cec5 !important;
+}
+
+/* General fix for faded text inside portfolio cards */
+html[data-theme="dark"] .portfolio-grid > *,
+html[data-theme="dark"] .portfolio-grid > * * {
+    opacity: 1 !important;
+}
+
+/* Make text on buttons readable */
+html[data-theme="dark"] .portfolio-grid button,
+html[data-theme="dark"] .portfolio-grid a {
+    opacity: 1 !important;
+}
+
+/* Edit button */
+html[data-theme="dark"] .portfolio-grid .primary-button,
+html[data-theme="dark"] .portfolio-grid .edit-button {
+    background: #174b35 !important;
+    color: #d6f3df !important;
+    -webkit-text-fill-color: #d6f3df !important;
+}
+
+/* Delete button */
+html[data-theme="dark"] .portfolio-grid .delete-button {
+    background: #422a28 !important;
+    color: #ffd7d2 !important;
+    -webkit-text-fill-color: #ffd7d2 !important;
+    border: 1px solid #67413c !important;
+}
+
+/* Keep dashboard text clear */
+html[data-theme="dark"] .dashboard-layout p,
+html[data-theme="dark"] .dashboard-layout span,
+html[data-theme="dark"] .dashboard-layout strong,
+html[data-theme="dark"] .dashboard-layout h1,
+html[data-theme="dark"] .dashboard-layout h2,
+html[data-theme="dark"] .dashboard-layout h3 {
+    text-shadow: none !important;
+}
