@@ -73,111 +73,117 @@
             <span class="live-pill"><i></i> Live preview</span>
         </div>
 
-        <article id="creativePortfolioPage" class="portfolio-page">
-            <nav class="portfolio-nav">
-                <a href="#creativeHome" class="portfolio-brand">hello<span>✿</span></a>
-                <div class="portfolio-links">
-                    <a href="#creativeHome">Home</a>
-                    <a href="#creativeAboutSection">About</a>
-                    <a href="#creativeProjects">Work</a>
-                    <a href="#creativeContact">Contact</a>
-                </div>
-            </nav>
+        <!-- MODERN PORTFOLIO DESIGN -->
+        <article id="creativePortfolioPage" class="portfolio-page modern-style">
 
-            <section id="creativeHome" class="hero-section">
-                <div class="hero-copy">
-                    <p class="mini-label"><span>✦</span> HEY THERE, I'M</p>
+            <aside class="profile-sidebar">
+                <div class="sidebar-top">
+                    <a href="#creativeHome" class="sidebar-logo">P.</a>
+                    <p class="sidebar-caption">PERSONAL PORTFOLIO</p>
+                </div>
+
+                <div class="profile-block">
+                    <div class="profile-photo-wrap">
+                        <div id="creativePhotoPlaceholder" class="profile-photo-placeholder">
+                            <span>YOUR PHOTO</span>
+                        </div>
+                        <img id="creativePreviewPhoto" class="profile-photo" alt="Profile photo" hidden>
+                    </div>
+
                     <h1 id="creativePreviewName">Your Name</h1>
-                    <h2 id="creativePreviewTitle">Web Developer & Designer</h2>
-                    <p id="creativeHeroAbout">Hi! I'm a creative and curious person who enjoys building websites, learning new things, and turning simple ideas into something lovely.</p>
+                    <p id="creativePreviewTitle" class="profile-role">Web Developer &amp; Designer</p>
+                    <span class="availability"><i></i> Available for opportunities</span>
+                </div>
+
+                <div class="sidebar-contact">
+                    <p class="sidebar-label">GET IN TOUCH</p>
+                    <p>Have a project in mind?</p>
+                    <a href="#creativeContact" class="sidebar-button">Contact Me ↗</a>
+                </div>
+
+                <div class="sidebar-bottom">
+                    <span id="creativePreviewFooter">MADE BY YOUR NAME</span>
+                </div>
+            </aside>
+
+            <div class="portfolio-main">
+                <nav class="portfolio-nav">
+                    <a href="#creativeHome" class="portfolio-brand">PORTFOLIO<span>.</span></a>
+                    <div class="portfolio-links">
+                        <a href="#creativeHome">Home</a>
+                        <a href="#creativeAboutSection">About</a>
+                        <a href="#creativeProjects">Projects</a>
+                        <a href="#creativeContact">Contact</a>
+                    </div>
+                </nav>
+
+                <section id="creativeHome" class="modern-hero">
+                    <p class="hero-label"><span></span> WELCOME TO MY PORTFOLIO</p>
+                    <h2>Hello, I'm <span id="creativeHeroName">Your Name</span></h2>
+                    <h3 id="creativeHeroRole">Web Developer &amp; Designer</h3>
+                    <p id="creativeHeroAbout">
+                        Hi! I'm a creative and curious person who enjoys building websites,
+                        learning new things, and turning simple ideas into something useful.
+                    </p>
 
                     <div class="hero-actions">
-                        <a href="#creativeProjects" class="preview-cta">See my work <span>↗</span></a>
-                        <a href="#creativeContact" class="text-link">Say hello ♡</a>
+                        <a href="#creativeProjects" class="preview-cta">View My Work ↗</a>
+                        <a href="#creativeAboutSection" class="text-link">Learn More</a>
                     </div>
+                </section>
 
-                    <span class="tiny-note">made with a little bit of magic ✧</span>
-                </div>
+                <section id="creativeAboutSection" class="content-section about-section">
+                    <p class="section-label">01 — ABOUT ME</p>
+                    <h2>A little about me</h2>
+                    <p id="creativePreviewAbout">
+                        I'm a creative and curious person who enjoys building websites,
+                        learning new things, and turning simple ideas into something useful.
+                    </p>
+                </section>
 
-                <div class="portrait-area">
-                    <div class="portrait-blob"></div>
-                    <div class="portrait-frame">
-                        <div id="creativePhotoPlaceholder" class="portrait-placeholder">
-                            <span>YOUR PHOTO</span>
-                            <b>♡</b>
+                <section class="content-section skills-section">
+                    <p class="section-label">02 — MY SKILLS</p>
+                    <h2>What I can do</h2>
+                    <div id="creativePreviewSkills" class="skill-list"></div>
+                </section>
+
+                <section id="creativeProjects" class="content-section projects-section">
+                    <p class="section-label">03 — MY WORK</p>
+                    <h2>Featured Project</h2>
+
+                    <div class="project-card">
+                        <div class="project-number">01</div>
+                        <div class="project-copy">
+                            <h3 id="creativePreviewProjectTitle">My Little Project</h3>
+                            <p id="creativePreviewProjectDescription">
+                                A simple and friendly web project made to help people stay
+                                organized and make everyday tasks easier.
+                            </p>
                         </div>
-                        <img id="creativePreviewPhoto" class="portrait-image" alt="Profile photo" hidden>
                     </div>
-                    <span class="float-star star-one">✦</span>
-                    <span class="float-star star-two">✧</span>
-                    <span class="float-heart">♡</span>
-                </div>
-            </section>
+                </section>
 
-            <section id="creativeAboutSection" class="about-section content-section">
-                <div class="section-icon">♡</div>
-                <div>
-                    <p class="section-number">01 · A LITTLE ABOUT ME</p>
-                    <h2>Nice to meet you!</h2>
-                    <p id="creativePreviewAbout">I'm a creative and curious person who enjoys building websites, learning new things, and turning simple ideas into something lovely.</p>
-                </div>
-            </section>
+                <section id="creativeContact" class="content-section contact-section">
+                    <p class="section-label">04 — CONTACT</p>
+                    <h2>Let's work together.</h2>
+                    <p>Have an idea or project? Feel free to get in touch.</p>
+                    <a id="creativePreviewEmail" href="mailto:you@example.com">you@example.com ↗</a>
+                </section>
 
-            <section class="skills-section content-section">
-                <p class="section-number">02 · THINGS I LOVE TO DO</p>
-                <h2>My little toolkit <span>✿</span></h2>
-                <div id="creativePreviewSkills" class="skill-list"></div>
-            </section>
-
-            <section id="creativeProjects" class="projects-section content-section">
-                <div class="section-heading-row">
-                    <div>
-                        <p class="section-number">03 · SOMETHING I MADE</p>
-                        <h2>Featured project <span>✧</span></h2>
-                    </div>
-                    <span class="tiny-note">a work in progress ♡</span>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-art">
-                        <span class="project-sun">☼</span>
-                        <span class="project-art-text">little<br>ideas</span>
-                        <span class="project-flower">✿</span>
-                    </div>
-                    <div class="project-copy">
-                        <span class="project-tag">MY CREATIVE CORNER</span>
-                        <h3 id="creativePreviewProjectTitle">My Little Project</h3>
-                        <p id="creativePreviewProjectDescription">A simple and friendly web project made to help people stay organized and make everyday tasks easier.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="creativeContact" class="contact-section">
-                <span class="contact-doodle">✿</span>
-                <div>
-                    <p class="section-number">04 · LET'S CONNECT</p>
-                    <h2>Have a lovely idea?</h2>
-                    <p>I'd love to hear from you. Let's make something good!</p>
-                </div>
-                <a id="creativePreviewEmail" href="mailto:you@example.com">you@example.com ↗</a>
-            </section>
-
-            <footer class="portfolio-footer">
-                <span id="creativePreviewFooter">MADE BY YOUR NAME ♡</span>
-                <span>THANKS FOR STOPPING BY ✿</span>
-            </footer>
+                <footer class="portfolio-footer">
+                    <span>MY PORTFOLIO</span>
+                    <span>THANK YOU FOR VISITING.</span>
+                </footer>
+            </div>
         </article>
     </section>
 </main>
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/js/supabase-config.js"></script>
 <script src="/js/portfolio-access.js"></script>
 <script src="/js/portfolio-storage.js"></script>
 <script src="/js/templates/creative-editor.js"></script>
-
 
 </body>
 </html>

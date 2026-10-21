@@ -537,3 +537,226 @@ a {
         flex-direction: column;
     }
 }
+
+/* MINIMAL EDITOR: SOFT LAVENDER FORM THEME */
+.editor-panel {
+    background: #E8E5EF;
+    border-color: #D8D2E3;
+}
+
+.editor-panel .eyebrow,
+.editor-panel .section-number {
+    color: #706681;
+}
+
+.editor-panel h1 {
+    color: #292536;
+}
+
+.editor-panel .intro {
+    color: #696477;
+}
+
+#minimalForm label {
+    color: #383347;
+}
+
+#minimalForm input:not([type="file"]),
+#minimalForm textarea {
+    background: #F3F1F6;
+    color: #302B3B;
+    border: 1px solid #D1CADF;
+    border-radius: 6px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#minimalForm input::placeholder,
+#minimalForm textarea::placeholder {
+    color: #898397;
+}
+
+#minimalForm input:not([type="file"]):focus,
+#minimalForm textarea:focus {
+    border-color: #85779F;
+    box-shadow: 0 0 0 2px #85779F20;
+    outline: none;
+}
+
+#minimalForm input[type="file"] {
+    color: #514A60;
+}
+
+#minimalForm .hint {
+    color: #716A7F;
+}
+
+/* Calm purple buttons */
+.form-actions button {
+    background: #655B7A;
+    border: 1px solid #655B7A;
+    color: #FFFFFF;
+    border-radius: 6px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.form-actions button:hover {
+    background: #554B69;
+    border-color: #554B69;
+    opacity: 1;
+}
+
+.form-actions .reset-btn {
+    background: #F3F1F6;
+    color: #514761;
+    border-color: #C8C0D7;
+}
+
+.form-actions .reset-btn:hover {
+    background: #E4DFEC;
+}
+
+.form-actions button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Required name warning */
+#minimalName.invalid-field {
+    background: #FBEDEE !important;
+    border-color: #D87880 !important;
+    box-shadow: 0 0 0 2px #D878801A;
+}
+
+#minimalName.invalid-field:focus {
+    border-color: #C85F6B !important;
+    box-shadow: 0 0 0 2px #D8788030;
+}
+
+#minimalMessage {
+    color: #655B7A;
+}
+
+#minimalMessage.error-message {
+    color: #B54752;
+}
+
+
+/* MINIMAL EDITOR: MATCH THE PORTFOLIO THEME */
+
+.editor-panel {
+    background: #F4F4EF;
+    border-color: #E4E6DF;
+}
+
+.editor-panel .eyebrow,
+.editor-panel .section-number {
+    color: #71816F;
+}
+
+.editor-panel h1 {
+    color: #17251F;
+}
+
+.editor-panel .intro {
+    color: #727A73;
+}
+
+/* Form labels */
+#minimalForm label {
+    color: #17251F;
+}
+
+/* Input fields */
+#minimalForm input:not([type="file"]),
+#minimalForm textarea {
+    background: #FFFFFF;
+    color: #17251F;
+    border: 1px solid #E4E6DF;
+    border-radius: 4px;
+}
+
+#minimalForm input::placeholder,
+#minimalForm textarea::placeholder {
+    color: #929890;
+}
+
+#minimalForm input:not([type="file"]):focus,
+#minimalForm textarea:focus {
+    background: #FFFFFF;
+    border-color: #8AA18B;
+    box-shadow: 0 0 0 2px #718B731C;
+    outline: none;
+}
+
+/* Photo input and helper text */
+#minimalForm input[type="file"] {
+    color: #17251F;
+}
+
+#minimalForm .hint {
+    color: #727A73;
+}
+
+/* Buttons: muted green to match the portfolio */
+.form-actions button {
+    background: #617A65;
+    border-color: #617A65;
+    color: #FFFFFF;
+    border-radius: 3px;
+}
+
+.form-actions button:hover {
+    background: #4F6853;
+    border-color: #4F6853;
+    opacity: 1;
+}
+
+.form-actions .reset-btn {
+    background: #FFFFFF;
+    border-color: #D5DDD3;
+    color: #17251F;
+}
+
+.form-actions .reset-btn:hover {
+    background: #E8EDE5;
+}
+
+/* Invalid name warning: soft red */
+#minimalName.invalid-field {
+    background: #F9EAEA !important;
+    border-color: #D17A7A !important;
+    box-shadow: 0 0 0 2px #D17A7A1A;
+}
+
+#minimalName.invalid-field:focus {
+    border-color: #B85D5D !important;
+    box-shadow: 0 0 0 2px #D17A7A30;
+}
+
+/* Messages */
+#minimalMessage {
+    color: #547354;
+}
+
+#minimalMessage.error-message {
+    color: #B54747;
+}
+
+/* RED RESET BUTTON */
+button[type="reset"],
+.reset-btn,
+#resetButton,
+#resetBtn {
+    background-color: #c62828 !important;
+    color: #ffffff !important;
+    border: 1px solid #a61f1f !important;
+    transition: background-color 0.2s ease;
+}
+
+button[type="reset"]:hover,
+.reset-btn:hover,
+#resetButton:hover,
+#resetBtn:hover {
+    background-color: #a61f1f !important;
+    color: #ffffff !important;
+}

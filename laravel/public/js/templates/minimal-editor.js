@@ -54,11 +54,42 @@ document.addEventListener("DOMContentLoaded", function () {
         email: emailInput.value
     };
 
-    function showMessage(text) {
+    function showMessage(text, isError = false) {
         if (message) {
             message.textContent = text;
+            message.classList.toggle("error-message", isError);
         }
     }
+
+    // Check that the name contains letters and spaces only.
+    function isValidName(name) {
+        return /^[\p{L}]+(?:\s+[\p{L}]+)*$/u.test(name.trim());
+    }
+
+    // Show a red field when the name is empty or invalid.
+    function setNameValidity() {
+        const valid = isValidName(nameInput.value);
+
+        nameInput.classList.toggle("invalid-field", !valid);
+        nameInput.setAttribute("aria-invalid", String(!valid));
+
+        return valid;
+    }
+
+    // Remove numbers and punctuation as the user types.
+    nameInput.addEventListener("input", function () {
+        const cursorPosition = nameInput.selectionStart;
+
+        nameInput.value = nameInput.value.replace(/[^\p{L}\s]/gu, "");
+
+        nameInput.setSelectionRange(
+            Math.min(cursorPosition, nameInput.value.length),
+            Math.min(cursorPosition, nameInput.value.length)
+        );
+
+        setNameValidity();
+        updatePreview();
+    });
 
     // Update the live portfolio preview.
     function updatePreview() {
@@ -85,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
             about || "Add a short introduction about yourself.";
 
         const skillList = $("previewSkills");
-
         skillList.replaceChildren();
 
         if (skills) {
@@ -163,12 +193,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         photoData = content.photo || "";
 
+        setNameValidity();
         updatePreview();
     }
 
-    // Update the live preview whenever text fields change.
+    // Update the preview whenever other text fields change.
     [
-        nameInput,
         titleInput,
         aboutInput,
         skillsInput,
@@ -193,8 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
             photoInput.value = "";
             photoData = "";
             updatePreview();
-
-            showMessage("Please select a valid image.");
+            showMessage("Please select a valid image.", true);
             return;
         }
 
@@ -202,8 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
             photoInput.value = "";
             photoData = "";
             updatePreview();
-
-            showMessage("Your photo must be 5 MB or smaller.");
+            showMessage("Your photo must be 5 MB or smaller.", true);
             return;
         }
 
@@ -211,7 +239,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         reader.onload = function (event) {
             photoData = event.target.result;
-
             updatePreview();
             showMessage("Your photo has been updated.");
         };
@@ -221,32 +248,30 @@ document.addEventListener("DOMContentLoaded", function () {
             updatePreview();
 
             showMessage(
-                "Could not read the photo. Please try another image."
+                "Could not read the photo. Please try another image.",
+                true
             );
         };
 
         reader.readAsDataURL(file);
     });
 
-    // Reset the editor to empty fields.
-    // This does not delete the saved portfolio from Supabase.
+    // Reset the editor fields without deleting the saved portfolio.
     if (resetButton) {
         resetButton.addEventListener("click", function () {
             nameInput.value = originalValues.name;
             titleInput.value = originalValues.title;
             aboutInput.value = originalValues.about;
             skillsInput.value = originalValues.skills;
-
             projectTitleInput.value = originalValues.projectTitle;
-
             projectDescriptionInput.value =
                 originalValues.projectDescription;
-
             emailInput.value = originalValues.email;
 
             photoInput.value = "";
             photoData = "";
 
+            setNameValidity();
             updatePreview();
             showMessage("Your portfolio has been reset.");
         });
@@ -260,7 +285,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!window.portfolioStorage) {
             showMessage(
-                "Portfolio storage is not loaded. Refresh the page."
+                "Portfolio storage is not loaded. Refresh the page.",
+                true
             );
             return;
         }
@@ -275,18 +301,18 @@ document.addEventListener("DOMContentLoaded", function () {
             const portfolio =
                 await window.portfolioStorage.getPortfolio(portfolioId);
 
-            if (portfolio.template !== "minimal") {
+            if (!portfolio || portfolio.template !== "minimal") {
                 throw new Error("This is not a Minimal portfolio.");
             }
 
             restorePortfolioContent(portfolio.content || {});
-
             showMessage("Saved portfolio loaded successfully.");
         } catch (error) {
             console.error("Could not load Minimal portfolio:", error);
 
             showMessage(
-                error.message || "Could not load this portfolio."
+                error.message || "Could not load this portfolio.",
+                true
             );
         } finally {
             if (saveButton) {
@@ -295,9 +321,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Save a new portfolio or update the current one.
+    // Save a portfolio and redirect to the dashboard after success.
     if (saveButton) {
         saveButton.addEventListener("click", async function () {
+            // Validate the name before attempting to save.
+            if (!setNameValidity()) {
+                showMessage(
+                    "Please enter a valid full name using letters and spaces only.",
+                    true
+                );
+
+                nameInput.focus();
+                return;
+            }
+
             const originalText = saveButton.textContent;
 
             saveButton.disabled = true;
@@ -328,12 +365,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const content = getPortfolioContent();
 
-                if (!content.name) {
-                    throw new Error(
-                        "Please enter your name before saving."
-                    );
-                }
-
                 const saved = await storage.savePortfolio({
                     id: portfolioId,
                     title: content.name + " - Portfolio",
@@ -341,22 +372,24 @@ document.addEventListener("DOMContentLoaded", function () {
                     content: content
                 });
 
+                if (!saved || !saved.id) {
+                    throw new Error(
+                        "The portfolio could not be saved. Please try again."
+                    );
+                }
+
                 portfolioId = saved.id;
 
-                const url = new URL(window.location.href);
-
-                url.searchParams.set("id", portfolioId);
-
-                window.history.replaceState({}, "", url);
-
-                showMessage("Portfolio saved successfully!");
+                // Redirect only after the save succeeds.
+                window.location.href = "/dashboard";
             } catch (error) {
                 console.error("Could not save Minimal portfolio:", error);
 
                 showMessage(
-                    error.message || "Could not save your portfolio."
+                    error.message || "Could not save your portfolio.",
+                    true
                 );
-            } finally {
+
                 saveButton.disabled = false;
                 saveButton.textContent = originalText;
             }
@@ -380,11 +413,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Create a standalone HTML copy without copying computed styles.
+    // Create a standalone HTML copy with the template stylesheet.
     async function createDownloadHTML() {
         const clone = portfolioPage.cloneNode(true);
 
-        // Keep the current photo in the downloaded portfolio.
         const clonedPhoto = clone.querySelector("#previewPhoto");
         const clonedPlaceholder = clone.querySelector("#photoPlaceholder");
 
@@ -406,10 +438,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        // Remove the editor's main preview ID from the exported copy.
         clone.removeAttribute("id");
 
-        // Load the actual template stylesheet.
         const response = await fetch("/css/templates/minimal-editor.css");
 
         if (!response.ok) {
@@ -424,18 +454,15 @@ document.addEventListener("DOMContentLoaded", function () {
             nameInput.value.trim() || "My Portfolio"
         );
 
-        // Include the stylesheet in the file so it works independently.
         return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${safeTitle}</title>
-
     <style>
         ${css}
 
-        /* Downloaded portfolio layout */
         body {
             margin: 0;
             padding: 24px;
@@ -483,7 +510,6 @@ document.addEventListener("DOMContentLoaded", function () {
             downloadButton.textContent = "Preparing download...";
 
             try {
-                // Ensure the latest edits appear in the exported copy.
                 updatePreview();
 
                 const html = await createDownloadHTML();
@@ -513,7 +539,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 showMessage(
                     error.message ||
-                    "Could not download your portfolio. Please try again."
+                    "Could not download your portfolio. Please try again.",
+                    true
                 );
             } finally {
                 downloadButton.disabled = false;
@@ -526,7 +553,8 @@ document.addEventListener("DOMContentLoaded", function () {
         );
     }
 
-    // Initialize the preview and load saved data if editing.
+    // Initialize the preview and name warning.
+    setNameValidity();
     updatePreview();
     loadSavedPortfolio();
 });

@@ -25,6 +25,130 @@ const modernDefaultValues = {
 const modernMessage = document.getElementById('modernMessage');
 
 let modernPhotoUrl = null;
+let modernValidationStarted = false;
+
+const modernRequiredFields = [
+    {
+        field: modernFields.name,
+        message: 'Please enter your full name using letters and spaces only.'
+    },
+    {
+        field: modernFields.role,
+        message: 'Please enter your professional title.'
+    },
+    {
+        field: modernFields.intro,
+        message: 'Please write a short introduction.'
+    },
+    {
+        field: modernFields.project,
+        message: 'Please enter your featured project.'
+    }
+];
+
+// Create an error message below a field if one does not exist.
+function modernGetErrorElement(field) {
+    let error = document.getElementById(field.id + 'Error');
+
+    if (!error) {
+        error = document.createElement('small');
+        error.id = field.id + 'Error';
+        error.className = 'field-error';
+        error.hidden = true;
+        field.insertAdjacentElement('afterend', error);
+    }
+
+    return error;
+}
+
+// Only letters and spaces are allowed in the full name.
+function modernIsValidName(value) {
+    return /^[\p{L}\s]+$/u.test(value.trim());
+}
+
+function modernValidateField(item) {
+    const field = item.field;
+    const value = field.value.trim();
+    const error = modernGetErrorElement(field);
+
+    let errorMessage = '';
+
+    if (!value) {
+        errorMessage = item.field === modernFields.name
+            ? 'Please enter your full name.'
+            : item.message;
+    } else if (
+        field === modernFields.name &&
+        !modernIsValidName(value)
+    ) {
+        errorMessage = 'Use letters and spaces only. Numbers and symbols are not allowed.';
+    }
+
+    const invalid = Boolean(errorMessage);
+
+    field.classList.toggle('field-invalid', invalid);
+    field.setAttribute('aria-invalid', invalid ? 'true' : 'false');
+
+    error.textContent = errorMessage;
+    error.hidden = !invalid;
+
+    return !invalid;
+}
+
+function modernValidateForm() {
+    modernValidationStarted = true;
+
+    let valid = true;
+
+    modernRequiredFields.forEach(item => {
+        if (!modernValidateField(item)) {
+            valid = false;
+        }
+    });
+
+    if (!valid) {
+        const firstInvalid = document.querySelector(
+            '#modernForm .field-invalid'
+        );
+
+        if (firstInvalid) {
+            firstInvalid.focus();
+            firstInvalid.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+
+        modernMessage.textContent =
+            'Please complete the required fields marked in red.';
+
+        return false;
+    }
+
+    return true;
+}
+
+// Keep the full name free of numbers and symbols while typing.
+modernFields.name.addEventListener('input', () => {
+    const field = modernFields.name;
+    const cleanedValue = field.value.replace(/[^\p{L}\s]/gu, '');
+
+    if (field.value !== cleanedValue) {
+        const position = field.selectionStart;
+        field.value = cleanedValue;
+
+        if (position !== null) {
+            field.setSelectionRange(
+                Math.max(0, position - 1),
+                Math.max(0, position - 1)
+            );
+        }
+    }
+
+    if (modernValidationStarted) {
+        modernValidateField(modernRequiredFields[0]);
+    }
+});
 
 function modernSetText(id, value, fallback) {
     const element = document.getElementById(id);
@@ -35,11 +159,36 @@ function modernSetText(id, value, fallback) {
 }
 
 function modernUpdatePreview() {
-    modernSetText('modernPreviewName', modernFields.name.value, 'Your Name');
-    modernSetText('modernPreviewRole', modernFields.role.value, 'Your Professional Title');
-    modernSetText('modernPreviewIntro', modernFields.intro.value, 'Welcome to my portfolio.');
-    modernSetText('modernPreviewAbout', modernFields.about.value, 'Add a short introduction about yourself.');
-    modernSetText('modernPreviewProject', modernFields.project.value, 'My Featured Project');
+    modernSetText(
+        'modernPreviewName',
+        modernFields.name.value,
+        'Your Name'
+    );
+
+    modernSetText(
+        'modernPreviewRole',
+        modernFields.role.value,
+        'Your Professional Title'
+    );
+
+    modernSetText(
+        'modernPreviewIntro',
+        modernFields.intro.value,
+        'Welcome to my portfolio.'
+    );
+
+    modernSetText(
+        'modernPreviewAbout',
+        modernFields.about.value,
+        'Add a short introduction about yourself.'
+    );
+
+    modernSetText(
+        'modernPreviewProject',
+        modernFields.project.value,
+        'My Featured Project'
+    );
+
     modernSetText(
         'modernPreviewProjectDescription',
         modernFields.projectDescription.value,
@@ -50,44 +199,65 @@ function modernUpdatePreview() {
     const emailElement = document.getElementById('modernPreviewEmail');
     const emailLink = document.getElementById('modernContactLink');
 
-    emailElement.textContent = email || 'Add your email address';
-    emailLink.textContent = email || 'Add your email address';
+    if (emailElement) {
+        emailElement.textContent = email || 'Add your email address';
+    }
 
-    if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        emailLink.href = 'mailto:' + email;
-    } else {
-        emailLink.removeAttribute('href');
+    if (emailLink) {
+        emailLink.textContent = email || 'Add your email address';
+
+        if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            emailLink.href = 'mailto:' + email;
+        } else {
+            emailLink.removeAttribute('href');
+        }
     }
 
     const skillsContainer = document.getElementById('modernPreviewSkills');
-    skillsContainer.replaceChildren();
 
-    const skills = modernFields.skills.value
-        .split(',')
-        .map(skill => skill.trim())
-        .filter(Boolean);
+    if (skillsContainer) {
+        skillsContainer.replaceChildren();
 
-    if (skills.length === 0) {
-        const emptySkill = document.createElement('span');
-        emptySkill.className = 'skill-chip';
-        emptySkill.textContent = 'Add your skills';
-        skillsContainer.appendChild(emptySkill);
-    } else {
-        skills.forEach(skill => {
-            const chip = document.createElement('span');
-            chip.className = 'skill-chip';
-            chip.textContent = skill;
-            skillsContainer.appendChild(chip);
-        });
+        const skills = modernFields.skills.value
+            .split(',')
+            .map(skill => skill.trim())
+            .filter(Boolean);
+
+        if (skills.length === 0) {
+            const emptySkill = document.createElement('span');
+            emptySkill.className = 'skill-chip';
+            emptySkill.textContent = 'Add your skills';
+            skillsContainer.appendChild(emptySkill);
+        } else {
+            skills.forEach(skill => {
+                const chip = document.createElement('span');
+                chip.className = 'skill-chip';
+                chip.textContent = skill;
+                skillsContainer.appendChild(chip);
+            });
+        }
     }
 
-    document.getElementById('modernPreviewYear').textContent =
-        new Date().getFullYear();
+    const year = document.getElementById('modernPreviewYear');
+
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
 }
 
 Object.values(modernFields).forEach(field => {
     if (field.type !== 'file') {
-        field.addEventListener('input', modernUpdatePreview);
+        field.addEventListener('input', () => {
+            modernUpdatePreview();
+
+            const requiredItem = modernRequiredFields.find(
+                item => item.field === field
+            );
+
+            if (modernValidationStarted && requiredItem) {
+                modernValidateField(requiredItem);
+            }
+        });
     }
 });
 
@@ -142,6 +312,17 @@ document.getElementById('modernReset').addEventListener('click', () => {
 
     document.getElementById('modernPhotoPlaceholder').hidden = false;
 
+    modernValidationStarted = false;
+
+    modernRequiredFields.forEach(item => {
+        item.field.classList.remove('field-invalid');
+        item.field.removeAttribute('aria-invalid');
+
+        const error = modernGetErrorElement(item.field);
+        error.textContent = '';
+        error.hidden = true;
+    });
+
     modernMessage.textContent = 'Form cleared.';
     modernUpdatePreview();
 });
@@ -167,6 +348,7 @@ function modernEscapeHtml(value) {
     })[character]);
 }
 
+// Download the portfolio as a standalone HTML file.
 document.getElementById('modernDownload').addEventListener('click', async () => {
     const button = document.getElementById('modernDownload');
 
@@ -186,12 +368,10 @@ document.getElementById('modernDownload').addEventListener('click', async () => 
         const css = await response.text();
         const portfolio = document.getElementById('modernPortfolioPage').cloneNode(true);
 
-        // Remove any editor-only behavior from the exported portfolio.
         portfolio.querySelectorAll('[contenteditable]').forEach(element => {
             element.removeAttribute('contenteditable');
         });
 
-        // Keep the navigation working inside the downloaded file.
         portfolio.querySelectorAll('.portfolio-links a').forEach(link => {
             const label = link.textContent.trim().toLowerCase();
 
@@ -200,7 +380,6 @@ document.getElementById('modernDownload').addEventListener('click', async () => 
             if (label === 'contact') link.href = '#modernContactSection';
         });
 
-        // Embed the uploaded photo so it still appears offline.
         const photoFile = modernFields.photo.files[0];
         const downloadedPhoto = portfolio.querySelector('#modernPreviewPhoto');
         const placeholder = portfolio.querySelector('#modernPhotoPlaceholder');
@@ -228,9 +407,7 @@ document.getElementById('modernDownload').addEventListener('click', async () => 
             }
         }
 
-        const portfolioName =
-            modernFields.name.value.trim() || 'My Portfolio';
-
+        const portfolioName = modernFields.name.value.trim() || 'My Portfolio';
         const safeTitle = modernEscapeHtml(portfolioName) + ' | Portfolio';
 
         const exportStyles = `
@@ -303,12 +480,9 @@ document.getElementById('modernDownload').addEventListener('click', async () => 
         link.click();
         link.remove();
 
-        modernMessage.textContent =
-            'Your portfolio is ready to download!';
-
+        modernMessage.textContent = 'Your portfolio is ready to download!';
     } catch (error) {
         console.error(error);
-
         modernMessage.textContent =
             'Download failed. Check that the CSS file exists and try again.';
     } finally {
@@ -323,24 +497,23 @@ document.getElementById('modernDownload').addEventListener('click', async () => 
 
 modernUpdatePreview();
 
-
 /* ==============================
    SUPABASE SAVE AND EDIT
 ============================== */
 
 (async function connectModernStorage() {
-    const saveButton = document.getElementById("modernSave");
-    const message = document.getElementById("modernMessage");
+    const saveButton = document.getElementById('modernSave');
+    const message = document.getElementById('modernMessage');
     const storage = window.portfolioStorage;
 
     if (!saveButton || !storage) {
-        console.error("Modern save button or portfolio storage is missing.");
+        console.error('Modern save button or portfolio storage is missing.');
         return;
     }
 
     const params = new URLSearchParams(window.location.search);
-    let portfolioId = params.get("id");
-    let savedPhotoData = "";
+    let portfolioId = params.get('id');
+    let savedPhotoData = '';
 
     function showMessage(text) {
         message.textContent = text;
@@ -361,27 +534,26 @@ modernUpdatePreview();
     }
 
     function restoreModernContent(content) {
-        modernFields.name.value = content.name || "";
-        modernFields.role.value = content.role || "";
-        modernFields.intro.value = content.intro || "";
-        modernFields.about.value = content.about || "";
-        modernFields.skills.value = content.skills || "";
-        modernFields.project.value = content.project || "";
-        modernFields.projectDescription.value =
-            content.projectDescription || "";
-        modernFields.email.value = content.email || "";
+        modernFields.name.value = content.name || '';
+        modernFields.role.value = content.role || '';
+        modernFields.intro.value = content.intro || '';
+        modernFields.about.value = content.about || '';
+        modernFields.skills.value = content.skills || '';
+        modernFields.project.value = content.project || '';
+        modernFields.projectDescription.value = content.projectDescription || '';
+        modernFields.email.value = content.email || '';
 
-        savedPhotoData = content.photo || "";
+        savedPhotoData = content.photo || '';
 
-        const previewPhoto = document.getElementById("modernPreviewPhoto");
-        const placeholder = document.getElementById("modernPhotoPlaceholder");
+        const previewPhoto = document.getElementById('modernPreviewPhoto');
+        const placeholder = document.getElementById('modernPhotoPlaceholder');
 
         if (savedPhotoData) {
             previewPhoto.src = savedPhotoData;
             previewPhoto.hidden = false;
             placeholder.hidden = true;
         } else {
-            previewPhoto.removeAttribute("src");
+            previewPhoto.removeAttribute('src');
             previewPhoto.hidden = true;
             placeholder.hidden = false;
         }
@@ -389,27 +561,27 @@ modernUpdatePreview();
         modernUpdatePreview();
     }
 
-    // Restore a previously saved portfolio when opened with ?id=...
+    // Load a saved portfolio when the editor URL contains ?id=...
     if (portfolioId) {
         try {
-            showMessage("Loading your saved portfolio...");
+            showMessage('Loading your saved portfolio...');
 
             const portfolio = await storage.getPortfolio(portfolioId);
 
-            if (portfolio.template !== "modern") {
-                throw new Error("This is not a Modern portfolio.");
+            if (portfolio.template !== 'modern') {
+                throw new Error('This is not a Modern portfolio.');
             }
 
             restoreModernContent(portfolio.content || {});
-            showMessage("Saved portfolio loaded.");
+            showMessage('Saved portfolio loaded.');
         } catch (error) {
-            console.error("Could not load Modern portfolio:", error);
-            showMessage("Could not load this portfolio. Please check access.");
+            console.error('Could not load Modern portfolio:', error);
+            showMessage('Could not load this portfolio. Please check access.');
         }
     }
 
-    // Keep the stored photo data updated when a new image is selected.
-    modernFields.photo.addEventListener("change", async function () {
+    // Save the selected photo for Supabase.
+    modernFields.photo.addEventListener('change', async function () {
         const file = modernFields.photo.files[0];
 
         if (!file) return;
@@ -418,28 +590,32 @@ modernUpdatePreview();
             savedPhotoData = await modernReadPhoto(file);
         } catch (error) {
             console.error(error);
-            showMessage("Could not read your photo.");
+            showMessage('Could not read your photo.');
         }
     });
 
-    // Save a new portfolio or update the current one.
-    saveButton.addEventListener("click", async function () {
+    // Save the portfolio and redirect only after saving succeeds.
+    saveButton.addEventListener('click', async function () {
+        if (!modernValidateForm()) {
+            return;
+        }
+
         const originalText = saveButton.textContent;
 
         saveButton.disabled = true;
-        saveButton.textContent = "Saving...";
-        showMessage("");
+        saveButton.textContent = 'Saving...';
+        showMessage('');
 
         try {
             const file = modernFields.photo.files[0];
 
             if (file) {
-                if (!file.type.startsWith("image/")) {
-                    throw new Error("Please choose a valid image file.");
+                if (!file.type.startsWith('image/')) {
+                    throw new Error('Please choose a valid image file.');
                 }
 
                 if (file.size > 5 * 1024 * 1024) {
-                    throw new Error("Your image must be 5 MB or smaller.");
+                    throw new Error('Your image must be 5 MB or smaller.');
                 }
 
                 savedPhotoData = await modernReadPhoto(file);
@@ -447,28 +623,27 @@ modernUpdatePreview();
 
             const content = getModernContent();
 
-            if (!content.name) {
-                throw new Error("Please enter your full name.");
-            }
-
             const saved = await storage.savePortfolio({
                 id: portfolioId,
-                title: content.name + " - Portfolio",
-                template: "modern",
+                title: content.name + ' - Portfolio',
+                template: 'modern',
                 content
             });
 
+            if (!saved || !saved.id) {
+                throw new Error('The portfolio was not saved. Please try again.');
+            }
+
             portfolioId = saved.id;
 
-            const url = new URL(window.location.href);
-            url.searchParams.set("id", portfolioId);
-            window.history.replaceState({}, "", url);
+            showMessage('Portfolio saved successfully! Redirecting...');
 
-            showMessage("Portfolio saved successfully!");
+            // Go to the dashboard only after Supabase confirms the save.
+            window.location.href = '/dashboard';
         } catch (error) {
-            console.error("Modern portfolio save failed:", error);
-            showMessage(error.message || "Could not save your portfolio.");
-        } finally {
+            console.error('Modern portfolio save failed:', error);
+            showMessage(error.message || 'Could not save your portfolio.');
+
             saveButton.disabled = false;
             saveButton.textContent = originalText;
         }

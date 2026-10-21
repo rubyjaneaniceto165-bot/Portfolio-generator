@@ -191,6 +191,70 @@ function updateHeader(session) {
 
 
 /* =========================
+   ACTIVE NAVIGATION UNDERLINE
+========================= */
+
+const navLinks = document.querySelectorAll(
+    'header nav a[href^="#"]'
+);
+
+const navSections = Array.from(navLinks)
+    .map(link => {
+        return document.querySelector(link.getAttribute("href"));
+    })
+    .filter(section => section !== null);
+
+function updateActiveNavigation() {
+    const header = document.querySelector("header");
+    const headerHeight = header ? header.offsetHeight : 0;
+
+    const scrollPosition =
+        window.scrollY + headerHeight + 120;
+
+    let activeSection = navSections[0];
+
+    navSections.forEach(section => {
+        if (section.offsetTop <= scrollPosition) {
+            activeSection = section;
+        }
+    });
+
+    navLinks.forEach(link => {
+        const isActive =
+            activeSection &&
+            link.getAttribute("href") === `#${activeSection.id}`;
+
+        link.classList.toggle("active", Boolean(isActive));
+
+        if (isActive) {
+            link.setAttribute("aria-current", "location");
+        } else {
+            link.removeAttribute("aria-current");
+        }
+    });
+}
+
+// Update the underline when a navigation link is clicked.
+navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.forEach(navLink => {
+            navLink.classList.toggle(
+                "active",
+                navLink === link
+            );
+        });
+    });
+});
+
+// Update the active section while scrolling.
+window.addEventListener("scroll", updateActiveNavigation, {
+    passive: true
+});
+
+window.addEventListener("resize", updateActiveNavigation);
+
+
+/* =========================
    LOGIN
 ========================= */
 
@@ -258,6 +322,7 @@ if (loginForm && supabaseClient) {
 }
 
 
+
 /* =========================
    SIGN UP
 ========================= */
@@ -320,7 +385,12 @@ if (signupForm && supabaseClient) {
                         data: {
                             full_name: fullName,
                             username: username
-                        }
+                        },
+
+                        // Return to the deployed Portech homepage
+                        // after the user confirms their email.
+                        emailRedirectTo:
+                            "https://portfolio-generator-b52x.onrender.com/"
                     }
                 });
 
@@ -335,13 +405,14 @@ if (signupForm && supabaseClient) {
                 updateHeader(data.session);
                 closePopup(signupPopup);
 
-                window.location.href = getPostLoginDestination();
+                window.location.href = "/";
                 return;
             }
 
             alert(
-                "Your account was created. Please check your email " +
-                "to verify your account, then log in."
+                "Your account was created! Please check your email " +
+                "and click the confirmation link. You will be " +
+                "returned to the Portech homepage."
             );
 
             closePopup(signupPopup);
@@ -359,6 +430,7 @@ if (signupForm && supabaseClient) {
         }
     });
 }
+
 
 
 /* =========================
@@ -394,13 +466,20 @@ async function checkLoginSession() {
    LISTEN FOR AUTH CHANGES
 ========================= */
 
+
 if (supabaseClient) {
     supabaseClient.auth.onAuthStateChange(
         (event, session) => {
             updateHeader(session);
+
+            if (event === "SIGNED_IN" && session) {
+                closePopup(loginPopup);
+                closePopup(signupPopup);
+            }
         }
     );
 }
+
 
 
 /* =========================
@@ -408,6 +487,7 @@ if (supabaseClient) {
 ========================= */
 
 checkLoginSession();
+updateActiveNavigation();
 
 if (new URLSearchParams(window.location.search).get("login") === "1") {
     showLoginPopup();

@@ -467,7 +467,7 @@
     <script src="/js/portfolio-access.js"></script>
 
     <!-- HOMEPAGE AUTHENTICATION -->
-    <script src="/js/main.js?v=4"></script>
+    <script src="/js/main.js?v=5"></script>
 
 
 </body>

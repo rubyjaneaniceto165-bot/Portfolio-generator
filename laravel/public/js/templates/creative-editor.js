@@ -28,8 +28,42 @@
     const saveButton = $('creativeSave');
     const message = $('creativeMessage');
 
+    // Require a name containing letters and spaces only.
+    fields.name.required = true;
+    fields.name.setAttribute('autocomplete', 'name');
+
     function showMessage(text) {
         message.textContent = text;
+    }
+
+    function isValidName(name) {
+        return /^[\p{L}]+(?:\s+[\p{L}]+)*$/u.test(name.trim());
+    }
+
+    // Highlight the name field when it is empty or invalid.
+    function validateName(showError = true) {
+        const name = fields.name.value.trim();
+        const valid = isValidName(name);
+
+        fields.name.setAttribute('aria-invalid', String(!valid));
+
+        if (!valid) {
+            fields.name.style.borderColor = '#dc2626';
+            fields.name.style.backgroundColor = '#fff1f2';
+
+            if (showError) {
+                showMessage(
+                    name
+                        ? 'Please use letters and spaces only for your name.'
+                        : 'Please fill in your name before saving.'
+                );
+            }
+        } else {
+            fields.name.style.borderColor = '';
+            fields.name.style.backgroundColor = '';
+        }
+
+        return valid;
     }
 
     function updatePreview() {
@@ -45,10 +79,22 @@
 
         $('creativePreviewName').textContent = name;
         $('creativePreviewTitle').textContent = title;
+
+        const heroName = $('creativeHeroName');
+        if (heroName) {
+            heroName.textContent = name;
+        }
+
+        const heroRole = $('creativeHeroRole');
+        if (heroRole) {
+            heroRole.textContent = title;
+        }
+
         $('creativeHeroAbout').textContent = about;
         $('creativePreviewAbout').textContent = about;
         $('creativePreviewProjectTitle').textContent = projectTitle;
         $('creativePreviewProjectDescription').textContent = projectDescription;
+
         $('creativePreviewFooter').textContent =
             'MADE BY ' + name.toUpperCase() + ' ♡';
 
@@ -135,9 +181,19 @@
         fields.email.value = content.email ?? defaults.email;
 
         savedPhotoData = content.photo || '';
+
         displaySavedPhoto(savedPhotoData);
+        validateName(false);
         updatePreview();
     }
+
+    // Keep numbers and special characters out of the name field.
+    fields.name.addEventListener('input', () => {
+        fields.name.value = fields.name.value.replace(/[^\p{L}\s]/gu, '');
+
+        validateName(false);
+        updatePreview();
+    });
 
     // Preview the uploaded photo.
     fields.photo.addEventListener('change', async () => {
@@ -178,14 +234,14 @@
         }
     });
 
-    // Update the preview when a field changes.
-    Object.values(fields).forEach(field => {
-        if (field !== fields.photo) {
+    // Update the preview when other fields change.
+    Object.entries(fields).forEach(([key, field]) => {
+        if (key !== 'photo' && key !== 'name') {
             field.addEventListener('input', updatePreview);
         }
     });
 
-    // Reset the editor to empty fields.
+    // Reset the editor.
     $('creativeReset').addEventListener('click', () => {
         Object.entries(fields).forEach(([key, field]) => {
             field.value = key === 'photo' ? '' : defaults[key];
@@ -194,14 +250,18 @@
         savedPhotoData = '';
         displaySavedPhoto('');
 
+        validateName(false);
         updatePreview();
 
         showMessage('All fields have been cleared. ✿');
     });
 
-    // Load an existing portfolio when the URL contains ?id=...
+    // Load an existing portfolio.
     async function loadSavedPortfolio() {
-        if (!portfolioId) return;
+        if (!portfolioId) {
+            validateName(false);
+            return;
+        }
 
         if (!window.portfolioStorage) {
             showMessage('Portfolio storage is not loaded. Refresh the page.');
@@ -229,9 +289,15 @@
         }
     }
 
-    // Save a new portfolio or update the existing one.
+    // Save the portfolio, then redirect to the dashboard.
     if (saveButton) {
         saveButton.addEventListener('click', async () => {
+            // Validate before attempting to save.
+            if (!validateName(true)) {
+                fields.name.focus();
+                return;
+            }
+
             const originalText = saveButton.textContent;
 
             saveButton.disabled = true;
@@ -262,8 +328,11 @@
 
                 const content = getPortfolioContent();
 
-                if (!content.name) {
-                    throw new Error('Please enter your name before saving.');
+                // Validate again immediately before saving.
+                if (!isValidName(content.name)) {
+                    validateName(true);
+                    fields.name.focus();
+                    return;
                 }
 
                 const saved = await storage.savePortfolio({
@@ -273,19 +342,24 @@
                     content
                 });
 
+                if (!saved || !saved.id) {
+                    throw new Error('The portfolio could not be saved.');
+                }
+
                 portfolioId = saved.id;
 
-                const url = new URL(window.location.href);
-                url.searchParams.set('id', portfolioId);
-                window.history.replaceState({}, '', url);
+                // Go to the dashboard only after a successful save.
+                showMessage('Portfolio saved successfully! Redirecting...');
 
-                showMessage('Portfolio saved successfully! ✿');
+                window.location.href = '/dashboard';
+
             } catch (error) {
                 console.error('Could not save portfolio:', error);
+
                 showMessage(
                     error.message || 'Could not save your portfolio.'
                 );
-            } finally {
+
                 saveButton.disabled = false;
                 saveButton.textContent = originalText;
             }
@@ -294,7 +368,7 @@
         console.error('The creativeSave button was not found in the page.');
     }
 
-    // Download the complete portfolio as a standalone HTML file.
+    // Download the portfolio as a standalone HTML file.
     $('creativeDownload').addEventListener('click', async () => {
         const button = $('creativeDownload');
 
@@ -320,7 +394,7 @@
                     link.href = '#creativeHome';
                 } else if (label === 'about') {
                     link.href = '#creativeAboutSection';
-                } else if (label === 'work') {
+                } else if (label === 'work' || label === 'projects') {
                     link.href = '#creativeProjects';
                 } else if (label === 'contact') {
                     link.href = '#creativeContact';
@@ -330,6 +404,7 @@
             const downloadedPhoto = portfolio.querySelector(
                 '#creativePreviewPhoto'
             );
+
             const placeholder = portfolio.querySelector(
                 '#creativePhotoPlaceholder'
             );
@@ -444,6 +519,7 @@ ${portfolio.outerHTML}
             showMessage('Your designed portfolio and photo are ready! ✿');
         } catch (error) {
             console.error(error);
+
             showMessage(
                 'Download failed. Check your CSS file and try again.'
             );
@@ -453,7 +529,8 @@ ${portfolio.outerHTML}
         }
     });
 
-    // Start the preview and load saved content if editing.
+    // Start the preview and load saved content.
     updatePreview();
+    validateName(false);
     loadSavedPortfolio();
 })();
