@@ -1456,3 +1456,295 @@ html[data-theme="dark"] .dashboard-layout h2,
 html[data-theme="dark"] .dashboard-layout h3 {
     text-shadow: none !important;
 }
+
+
+/* ==========================================
+   PORTECH DASHBOARD - PROFILE READABILITY
+========================================== */
+
+html[data-theme="dark"] .dashboard-layout .user-profile {
+    background: #202a23 !important;
+    border: 1px solid #3c5041 !important;
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+html[data-theme="dark"] .dashboard-layout .user-info {
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .dashboard-layout .user-info #topbarName {
+    color: #f0f5f1 !important;
+    -webkit-text-fill-color: #f0f5f1 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .dashboard-layout .user-info span {
+    color: #c1d0c4 !important;
+    -webkit-text-fill-color: #c1d0c4 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .dashboard-layout .user-avatar {
+    background: #31543c !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* Make template badges readable */
+html[data-theme="dark"] .dashboard-layout .portfolio-grid * {
+    text-shadow: none !important;
+}
+
+html[data-theme="dark"] .dashboard-layout .portfolio-grid span {
+    opacity: 1 !important;
+}
+
+/* Keep card text readable */
+html[data-theme="dark"] .dashboard-layout .portfolio-grid h2,
+html[data-theme="dark"] .dashboard-layout .portfolio-grid h3,
+html[data-theme="dark"] .dashboard-layout .portfolio-grid p {
+    color: #e5eee7 !important;
+    -webkit-text-fill-color: #e5eee7 !important;
+    opacity: 1 !important;
+}
+
+
+/* =========================================
+   PORTECH DASHBOARD — DARK MODE FIX
+   Paste at the bottom of dashboard.css
+========================================= */
+
+html[data-theme="dark"] body {
+    background: #101612 !important;
+    color: #edf4ee !important;
+}
+
+html[data-theme="dark"] .dashboard-layout,
+html[data-theme="dark"] .dashboard-main {
+    background: #101612 !important;
+    color: #edf4ee !important;
+}
+
+/* Sidebar */
+html[data-theme="dark"] .sidebar {
+    background: #151e18 !important;
+    border-color: #2b382e !important;
+}
+
+html[data-theme="dark"] .sidebar .brand,
+html[data-theme="dark"] .sidebar .brand span,
+html[data-theme="dark"] .sidebar-label,
+html[data-theme="dark"] .nav-link,
+html[data-theme="dark"] .sidebar-tip h3,
+html[data-theme="dark"] .sidebar-tip p {
+    color: #edf4ee !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #edf4ee !important;
+}
+
+html[data-theme="dark"] .nav-link.active {
+    background: #304a38 !important;
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .sidebar-tip {
+    background: #202d23 !important;
+    border: 1px solid #354638 !important;
+}
+
+html[data-theme="dark"] .sidebar-logout {
+    background: #302321 !important;
+    color: #ffb5a8 !important;
+    border: 1px solid #624039 !important;
+}
+
+/* Top bar */
+html[data-theme="dark"] .dashboard-topbar {
+    background: #101612 !important;
+    border-color: #2b382e !important;
+}
+
+html[data-theme="dark"] .topbar-label,
+html[data-theme="dark"] .topbar-subtitle {
+    color: #d6e4d9 !important;
+    opacity: 1 !important;
+}
+
+/* Profile — fix faded name and account label */
+html[data-theme="dark"] .user-profile {
+    background: #202d23 !important;
+    border: 1px solid #354638 !important;
+}
+
+html[data-theme="dark"] .user-info strong {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+html[data-theme="dark"] .user-info span {
+    color: #c2d2c6 !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #c2d2c6 !important;
+}
+
+html[data-theme="dark"] .user-avatar {
+    background: #345640 !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* Theme toggle */
+html[data-theme="dark"] .theme-toggle {
+    background: #26362b !important;
+    color: #ffffff !important;
+    border: 1px solid #465b4a !important;
+    opacity: 1 !important;
+}
+
+/* Welcome section */
+html[data-theme="dark"] .welcome-section {
+    background: #19241c !important;
+    color: #edf4ee !important;
+    border: 1px solid #2e3e31 !important;
+}
+
+html[data-theme="dark"] .welcome-section h1,
+html[data-theme="dark"] .welcome-section p,
+html[data-theme="dark"] .welcome-section span {
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] .welcome-section h1,
+html[data-theme="dark"] .welcome-section p {
+    color: #edf4ee !important;
+    -webkit-text-fill-color: #edf4ee !important;
+}
+
+html[data-theme="dark"] #welcomeName {
+    color: #a9d6b2 !important;
+    -webkit-text-fill-color: #a9d6b2 !important;
+}
+
+/* Summary cards */
+html[data-theme="dark"] .summary-card {
+    background: #19241c !important;
+    border: 1px solid #2e3e31 !important;
+    color: #edf4ee !important;
+}
+
+html[data-theme="dark"] .summary-card p,
+html[data-theme="dark"] .summary-card h2,
+html[data-theme="dark"] .summary-card span {
+    color: #edf4ee !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #edf4ee !important;
+}
+
+/* Portfolio section headings */
+html[data-theme="dark"] .portfolio-section,
+html[data-theme="dark"] .section-heading {
+    background: #101612 !important;
+    color: #edf4ee !important;
+}
+
+html[data-theme="dark"] .section-heading h2,
+html[data-theme="dark"] .section-eyebrow,
+html[data-theme="dark"] .section-description {
+    color: #edf4ee !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #edf4ee !important;
+}
+
+/* Portfolio cards */
+html[data-theme="dark"] .portfolio-card,
+html[data-theme="dark"] .empty-state {
+    background: #19241c !important;
+    color: #edf4ee !important;
+    border: 1px solid #334337 !important;
+    box-shadow: none !important;
+}
+
+html[data-theme="dark"] .portfolio-card h3,
+html[data-theme="dark"] .portfolio-card-title,
+html[data-theme="dark"] .portfolio-card p,
+html[data-theme="dark"] .portfolio-card-date,
+html[data-theme="dark"] .empty-state h3,
+html[data-theme="dark"] .empty-state p {
+    color: #edf4ee !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #edf4ee !important;
+}
+
+/* Template badges — no more pale white */
+html[data-theme="dark"] .portfolio-card-template {
+    display: inline-block !important;
+    background: #304a38 !important;
+    color: #d9f0df !important;
+    border: 1px solid #49664f !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #d9f0df !important;
+}
+
+/* Buttons */
+html[data-theme="dark"] .primary-button,
+html[data-theme="dark"] .portfolio-edit-button {
+    background: #24583c !important;
+    color: #ffffff !important;
+    border: 1px solid #39724f !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+html[data-theme="dark"] .secondary-button {
+    background: #202d23 !important;
+    color: #d9f0df !important;
+    border: 1px solid #405545 !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #d9f0df !important;
+}
+
+html[data-theme="dark"] .portfolio-delete-button {
+    background: #392321 !important;
+    color: #ffc0b5 !important;
+    border: 1px solid #71463d !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #ffc0b5 !important;
+}
+
+html[data-theme="dark"] .primary-button:hover,
+html[data-theme="dark"] .portfolio-edit-button:hover {
+    background: #2e704b !important;
+}
+
+/* Footer and messages */
+html[data-theme="dark"] .dashboard-footer {
+    background: #101612 !important;
+    color: #c2d2c6 !important;
+    border-color: #2b382e !important;
+}
+
+html[data-theme="dark"] .dashboard-footer p,
+html[data-theme="dark"] .dashboard-footer span,
+html[data-theme="dark"] .dashboard-message {
+    color: #c2d2c6 !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #c2d2c6 !important;
+}
+
+/* Prevent faded dashboard text */
+html[data-theme="dark"] .dashboard-layout p,
+html[data-theme="dark"] .dashboard-layout span,
+html[data-theme="dark"] .dashboard-layout strong,
+html[data-theme="dark"] .dashboard-layout h1,
+html[data-theme="dark"] .dashboard-layout h2,
+html[data-theme="dark"] .dashboard-layout h3 {
+    text-shadow: none !important;
+}
+
+/* Disabled buttons */
+html[data-theme="dark"] button:disabled {
+    opacity: 0.65 !important;
+}
